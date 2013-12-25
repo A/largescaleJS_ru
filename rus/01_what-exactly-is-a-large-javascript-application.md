@@ -1,23 +1,24 @@
-### What exactly *is* a 'large' JavaScript application?
+### Что из себя представляет «большое» JavaScript приложение?
 
-Before we begin, let us attempt to define what we mean when we refer to a
-JavaScript application as being significantly 'large'. This is a question I've 
-found still challenges developers with many years of experience in the field and
-the answer to this can be quite subjective.
+Перед тем как я начну, давайте постараемся определить, что именно мы имеем 
+в виду, когда говорим о весьма больших JavaScript приложениях. Этот вопрос
+я нахожу неким вызовом опытным разработчикам, и ответы получаются весьма
+субъективными.
 
-As an experiment, I asked a few intermediate developers to try providing their
-definition of it informally. One developer suggested 'a JavaScript application 
-with over 100,000 LOC' whilst another suggested 'apps with over 1MB of 
-JavaScript code written in-house'. Whilst valiant (if not scary) suggestions, 
-both of these are**incorrect** as the size of a codebase does not always
-correlate to application complexity - those 100,000 LOC could easily represent 
-quite trivial code.
+Ради эксперимента, я предложил нескольким среднестатистическим разработчикам
+попытаться дать собственное определение этому термину. Один из разработчиков 
+предложил определение «JavaScript приложение, состоящее из более чем 100.000 LOC
+кода», когда другой определил это как «приложение, содержащее больше, чем
+1Mb JavaScript кода внутри». Я расстроил храбрецов — оба этих варианта
+не правильные. Количество кода не всегда коррелируется со сложностью приложения. 
+100,000 LOC легко могут оказаться простой ничем не примечательным кодом.  
 
-My own definition may or may not be universally accepted, but I believe that it
-'s closer to what a large application actually represents.
+Я не знаю, подойдет ли мое собственное определение к любому случаю, но я верю,
+что оно подходит ближе всего к тому, что действительно представляет из себя
+большое JavaScript приложение.
 
-In my view, large-scale JavaScript apps are **non-trivial** applications
-requiring**significant** developer effort to maintain, where most heavy lifting
-of data manipulation and display falls to the**browser**. 
+По моему мнению, большие JavaScript приложения **не тривиальны** и требуют
+**намного** больших усилий разработчиков для их поддержки, where most heavy
+lifting of data manipulation and display falls to the**browser**. 
 
-The last part of this definition is possibly the most significant.
+Последняя часть определения, вероятно, самая ваджная.
