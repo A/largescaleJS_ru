@@ -284,8 +284,8 @@ CommonJS modules.
 
 ##### The Module Pattern 
 
-The module pattern is a popular design that pattern that encapsulates 'privacy
-', state and organization using closures. It provides a way of wrapping a mix of
+The module pattern is a popular design that pattern that encapsulates 'privacy',
+state and organization using closures. It provides a way of wrapping a mix of
 public and private methods and variables, protecting pieces from leaking into 
 the global scope and accidentally colliding with another developer's interface. 
 With this pattern, only a public API is returned, keeping everything else within
@@ -517,7 +517,8 @@ contains the objects a module wishes to make available to other modules and a
 . 
 
     /*
-    Example of achieving compatibility with AMD and standard CommonJS by putting boilerplate around the standard CommonJS module format:
+    Example of achieving compatibility with AMD and standard CommonJS by putting
+    boilerplate around the standard CommonJS module format:
     */
     
     (function(define){
@@ -730,99 +731,121 @@ on previous work by[@rpflorence][8]
     
     
     
-    **
-    Example:** Here are two sample uses of the implementation from above. It's effectively managed publish/subscribe:
+**Example:** Here are two sample uses of the implementation from above. It's effectively managed publish/subscribe:
     
     
     
-        //Pub/sub on a centralized mediator
-        
-        mediator.name = "tim";
-        mediator.subscribe('nameChange', function(arg){
-                console.log(this.name);
-                this.name = arg;
-                console.log(this.name);
-        });
-        
-        mediator.publish('nameChange', 'david'); //tim, david
-        
-        
-        //Pub/sub via third party mediator
-        
-        var obj = { name: 'sam' };
-        mediator.installTo(obj);
-        obj.subscribe('nameChange', function(arg){
-                console.log(this.name);
-                this.name = arg;
-                console.log(this.name);
-        });
-        
-        obj.publish('nameChange', 'john'); //sam, john
-        
+    //Pub/sub on a centralized mediator
     
-     
+    mediator.name = "tim";
+    mediator.subscribe('nameChange', function(arg){
+            console.log(this.name);
+            this.name = arg;
+            console.log(this.name);
+    });
+    
+    mediator.publish('nameChange', 'david'); //tim, david
     
     
+    //Pub/sub via third party mediator
     
-    ### **Applying The Facade: Abstraction Of The Core**
+    var obj = { name: 'sam' };
+    mediator.installTo(obj);
+    obj.subscribe('nameChange', function(arg){
+            console.log(this.name);
+            this.name = arg;
+            console.log(this.name);
+    });
     
-    
-    In the architecture suggested:
-    
-     
-    
-    
-    A facade serves as an **abstraction** of the application core which sits between the mediator and our modules - it should ideally be the **only** other part of the system modules are aware of. 
-    
-    
-    
-    
-    The responsibilities of the abstraction include ensuring a **consistent interface** to these modules is available at all times. This closely resembles the role of the **sandbox controller** in the excellent architecture first suggested by Nicholas Zakas.
-    
-    
-    Components are going to communicate with the mediator through the facade so it needs to be **dependable**. When I say 'communicate', I should clarify that as the facade is an abstraction of the mediator which will be listening out for broadcasts from modules that will be relayed back to the mediator.
-    
-    
-    In addition to providing an interface to modules, the facade also acts as a security guard, determining which parts of the application a module may access. Components only call **their own** methods and shouldn't be able to interface with anything they don't have permission to. For example, a module may broadcast dataValidationCompletedWriteToDB. The idea of a security check here is to ensure that the module has permissions to request database-write access. What we ideally want to avoid are issues with modules accidentally trying to do something they shouldn't be.
-    
-    
-    To review in short, the mediator remains a type of pub/sub manager but is only passed interesting messages once they've cleared permission checks by the facade.
-    
-    
-    
-    ### **Applying the Mediator: The Application Core**
-    
-    
-    The mediator plays the role of the application core. We've briefly touched on some of its responsibilities but lets clarify what they are in full. 
-    
-    
-    
-    The core's primary job is to manage the module **lifecycle. **When the core detects an** interesting message** it needs to decide how the application should react - this effectively means deciding whether a module or set of modules needs to be **started** or** stopped**. 
-    
-    
-     
-    
-    
-    Once a module has been started, it should ideally execute **automatically**. It's not the core's task to decide whether this should be when the DOM is ready and there's enough scope in the architecture for modules to make such decisions on their own. 
-    
-    
-    
-    
-    You may be wondering in what circumstance a module might need to be 'stopped' - if the application detects that a particular module has failed or is experiencing significant errors, a decision can be made to prevent methods in that module from executing further  so that it may be restarted. The goal here is to assist in reducing disruption to the user experience.
-    
-    
-    In addition, the core should enable **adding or removing** modules without breaking anything. A typical example of where this may be the case is functionality which may not be available on initial page load, but is dynamically loaded based on expressed user-intent eg. going back to our GMail example, Google could keep the chat widget collapsed by default and only dynamically load in the chat module(s) when a user expresses an interest in using that part of the application. From a performance optimization perspective, this may make sense.
-    
-    
-    Error management will also be handled by the application core. In addition to modules broadcasting messages of interest they will also broadcast any errors experienced which the core can then react to accordingly (eg. stopping modules, restarting them etc).It's important that as part of a decoupled architecture there to be enough scope for the introduction of new or better ways of handling or displaying errors to the end user without manually having to change each module. Using publish/subscribe through a mediator allows us to achieve this.
-    
-    
-    
-    ### **Tying It All Together**
-    
-    
-    
-    
+    obj.publish('nameChange', 'john'); //sam, john
+
+
+ 
+
+
+
+### **Applying The Facade: Abstraction Of The Core**
+
+In the architecture suggested:
+
+A facade serves as an **abstraction** of the application core which sits between
+the mediator and our modules - it should ideally be the **only** other part of
+the system modules are aware of. 
+
+
+
+
+The responsibilities of the abstraction include ensuring a **consistent
+interface** to these modules is available at all times. This closely resembles
+the role of the **sandbox controller** in the excellent architecture first
+suggested by Nicholas Zakas.
+
+
+Components are going to communicate with the mediator through the facade so it
+needs to be **dependable**. When I say 'communicate', I should clarify that as
+the facade is an abstraction of the mediator which will be listening out for
+broadcasts from modules that will be relayed back to the mediator.
+
+
+In addition to providing an interface to modules, the facade also acts as
+a security guard, determining which parts of the application a module may
+access. Components only call **their own** methods and shouldn't be able to
+interface with anything they don't have permission to. For example, a module
+may broadcast dataValidationCompletedWriteToDB. The idea of a security check
+here is to ensure that the module has permissions to request database-write
+access. What we ideally want to avoid are issues with modules accidentally
+trying to do something they shouldn't be.
+
+
+To review in short, the mediator remains a type of pub/sub manager but is only
+passed interesting messages once they've cleared permission checks by the
+facade.
+
+
+### **Applying the Mediator: The Application Core**
+
+
+The mediator plays the role of the application core. We've briefly touched on
+some of its responsibilities but lets clarify what they are in full. 
+
+
+
+The core's primary job is to manage the module **lifecycle. **When the core
+detects an** interesting message** it needs to decide how the application
+should react - this effectively means deciding whether a module or set of
+modules needs to be **started** or** stopped**. 
+
+Once a module has been started, it should ideally execute **automatically**.
+It's not the core's task to decide whether this should be when the DOM is ready
+and there's enough scope in the architecture for modules to make such decisions
+on their own. 
+
+You may be wondering in what circumstance a module might need to be 'stopped'
+- if the application detects that a particular module has failed or is
+experiencing significant errors, a decision can be made to prevent methods in
+that module from executing further  so that it may be restarted. The goal here
+is to assist in reducing disruption to the user experience.
+
+In addition, the core should enable **adding or removing** modules without
+breaking anything. A typical example of where this may be the case is
+functionality which may not be available on initial page load, but is
+dynamically loaded based on expressed user-intent eg. going back to our GMail
+example, Google could keep the chat widget collapsed by default and only
+dynamically load in the chat module(s) when a user expresses an interest in
+using that part of the application. From a performance optimization perspective,
+this may make sense.
+
+Error management will also be handled by the application core. In addition to
+modules broadcasting messages of interest they will also broadcast any errors
+experienced which the core can then react to accordingly (eg. stopping modules,
+restarting them etc).It's important that as part of a decoupled architecture
+there to be enough scope for the introduction of new or better ways of handling
+or displaying errors to the end user without manually having to change each
+module. Using publish/subscribe through a mediator allows us to achieve this.
+
+
+### **Tying It All Together**
+
 
 *   **Modules** contain specific pieces of functionality for your application.
     They publish notifications informing the application whenever something 
@@ -835,6 +858,7 @@ on previous work by[@rpflorence][8]
     *   where these objects are based (whether this is on the client or server
         )
     *   how many objects subscribe to notifications
+
 **![][9]**
 
 *   **The Facade** abstracts the core to avoid modules touching it directly. It
@@ -842,7 +866,7 @@ on previous work by[@rpflorence][8]
     Give me the details!'. It also handles module security by checking to ensure the
     module broadcasting an event has the necessary permissions to pass such events 
     that can be accepted.
-   
+
 **![][10]**
 
 *   **The Mediator (Application Core)** acts as a 'Pub/Sub' manager using the
@@ -850,7 +874,7 @@ on previous work by[@rpflorence][8]
     modules as needed. This is of particular use for dynamic dependency loading and 
     ensuring modules which fail can be centrally restarted as needed.
    
-    **![][11]**
+**![][11]**
 
 The result of this architecture is that modules (in most cases) are
 theoretically no longer dependent on other modules. They can be easily tested 
@@ -941,7 +965,6 @@ anything. If you want to strictly stick to this architecture you'll need to
 follow the rules defined or opt for a looser architecture as per the answer to 
 the first question.
 
-####  
 
 ### Credits
 
@@ -952,17 +975,17 @@ Murphey, Justin Meyer, John Hann, Peter Michaux, Paul Irish and Alex Sexton, all
 of whom have written material related to the topics discussed in the past and 
 are a constant source of inspiration for both myself and others.
 
- [1]: http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/
- [2]: http://addyosmani.com/resources/essentialjsdesignpatterns/book/
- [3]: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
- [4]: http://groups.google.com/group/comp.lang.javascript/msg/9f58bd11bd67d937
- [5]: http://commonjs.org
- [6]: http://msdn.microsoft.com/en-us/scriptjunkie/ff943568
- [7]: img/chart4a.jpg
- [8]: https://github.com/rpflorence
- [9]: img/chart1a.gif
- [10]: img/chart2a.gif
- [11]: img/chart3a.gif
- [12]: https://plus.google.com/106413090159067280619/posts/hDZkVrDXZR6
- [13]: http://softwareas.com/automagic-event-registration
- [14]: http://bit.ly/orGVOL
+[1]: http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/
+[2]: http://addyosmani.com/resources/essentialjsdesignpatterns/book/
+[3]: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
+[4]: http://groups.google.com/group/comp.lang.javascript/msg/9f58bd11bd67d937
+[5]: http://commonjs.org
+[6]: http://msdn.microsoft.com/en-us/scriptjunkie/ff943568
+[7]: img/chart4a.jpg
+[8]: https://github.com/rpflorence
+[9]: img/chart1a.gif
+[10]: img/chart2a.gif
+[11]: img/chart3a.gif
+[12]: https://plus.google.com/106413090159067280619/posts/hDZkVrDXZR6
+[13]: http://softwareas.com/automagic-event-registration
+[14]: http://bit.ly/orGVOL
