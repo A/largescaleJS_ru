@@ -1,34 +1,37 @@
-### Let's review your current architecture.
+### Давайте обсудим вашу существующую архитектуру
 
-If working on a significantly large JavaScript application, remember to
-dedicate**sufficient time** to planning the underlying architecture that makes
-the most sense. It's often more complex than you may initially imagine.
+Если вы работаете над большим JavaScript приложением, не забывайте уделять 
+**достаточно времени** на планирование базовой архитектуры, к которой очень
+чувствительны подобного рода приложения. Большие приложения обычно представляют
+из себя очень сложные системы. Гораздо более сложные, чем вы себе их
+представляете изначально.
 
-I can't stress the importance of this enough - some developers I've seen
-approach larger applications have stepped back and said 'Okay. Well, there are a
-set of ideas and patterns that worked well for me on my last medium-scale 
-project. Surely they should mostly apply to something a little larger, right?'. 
-Whilst this may be true to an extent, please don't take it for granted
-- **larger apps generally have greater concerns that need to be factored in**.
-I'm going to discuss shortly why spending a little more time planning out the 
-structure to your application is worth it in the long run.
+Я должен подчеркнуть значение этой разницы — я видел разработчиков, которые,
+сталкиваясь с большими приложениями, делали шаг назад и говорили: «Хорошо,
+У меня есть несколько идей и подходов, которые хорошо показали себя в моем
+предыдущем средне-масштабном проекте. Вне всякого сомнения, они сработают и
+на чем-то большем, верно?». Конечно, это может быть до какой-то степени верным,
+но, пожалуйста, не принимайте это как доложное — большие приложения в основном
+имеют ряд достаточно серьезных проблем, с которыми нужно считаться. Ниже я
+приведу немного доводов о том, почему вам стоит потратить чуть больше времени 
+на планирование архитектуры своего приложения, и чем это будет вам полезно
+в долгосрочной перспективе.
 
-Most JavaScript developers likely use a mixed combination of the following for
-their current architecture:
+Большинство JavaScript разработчиков в архитектуре своих приложений обычно
+использует различные комбинации из следующих компонентов:
 
-*   custom widgets
+*   касто widgets
 *   models
 *   views
 *   controllers
 *   templates
 *   libraries/toolkits
-*   an application core. 
+*   an application core.
 
-You probably also break down your application's functionality into blocks of
-modules or apply other patterns for this. This is great, but there are a number 
-of potential problems you can run into if this represents all of your 
-application's structure.
-
+Вы, вероятно, так же разбиваете различные функции ваших приложений на наборы
+модулей. Либо используете какие-то иные паттерны для подобного разделения. Это
+замечательно, но здесь есть несколько потенциальных проблем, с которыми вы
+можете столкнуться, используя такой подход.
 
 ##### 1. How much of this architecture is instantly re-usable? 
 
