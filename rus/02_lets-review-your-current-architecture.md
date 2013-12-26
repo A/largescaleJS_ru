@@ -20,7 +20,7 @@
 Большинство JavaScript разработчиков в архитектуре своих приложений обычно
 использует различные комбинации из следующих компонентов:
 
-*   касто widgets
+*   custom widgets
 *   models
 *   views
 *   controllers
@@ -33,27 +33,30 @@
 замечательно, но здесь есть несколько потенциальных проблем, с которыми вы
 можете столкнуться, используя такой подход.
 
-##### 1. How much of this architecture is instantly re-usable? 
 
-Can single modules exist on their own independently? Are they self-contained?
-Right now if I were to look at the codebase for a large application you or your 
-team were working on and selected a random module, would it be possible for me 
-to easily just drop it into a new page and start using it on its own?. You may 
-question the rationale behind wanting to do this, however I encourage you to 
-think about the future. What if your company were to begin building more and 
-more non-trivial applications which shared some cross-over in functionality?. If
-someone said, 'Our users love using the chat module in our mail client. Let's 
-drop that into our new collaborative editing suite', would this be possible 
-without significantly altering the code?
+##### 1. Насколько ваша архитектура готова к переиспользованию прямо сейчас?
+
+Могут ли отдельные модули использоваться самостоятельно? Являются ли они
+автономными? Мог бы я прямо сейчас взять один из модулей вашего большого 
+приложения, просто поместить его на новую веб-страницу, и тут же начать этот
+модуль использовать? Вы можете задаться вопросом «Действительно ли это
+необходимо?», как бы то ни было, я надеюсь, что вы думаете о будущем. Что, 
+если ваша компания начнет создавать все больше и больше нетривиальных
+приложений, которые будут имеють некоторую общую функциональность? Если кто-то
+скажет «Нашим пользователям очень нравится использовать модуль чата в нашем
+email-клиенте. Давайте добавим этот модуль к нашему новому приложению для
+совместной работы с докуменатми!», будет ли это возможно, если мы не уделим
+должного внимания контролю изменений кода? (???)
 
 
-##### 2. How much do modules depend on other modules in the system? 
+##### 2. Сколько модулей в вашей системе зависит от других модулей?
 
-Are they tightly coupled? Before I dig into why this is a concern, I should
-note that I understand it's not always possible to have modules with absolutely 
-no other dependencies in a system. At a granular level you may well have modules
-that extend the base functionality of others, but this question is more-so 
-related to groups of modules with distinct functionality. It should be possible 
+Насколько сильно связаны ваши модули? Перед тем, как я погружусь в объяснения,
+о важности низкой связанности модулей, я должен отметить, что не всегда есть
+возможность создавать модули, не имеющие абсолютно никаких зависимостей
+в системе. Фактически, ваши модули могут, к примеру, расширять функции других, 
+уже существующих модулей. Эта тема, скорее всего, относится к группировке
+модулей на основе некоторого функционала (???). It should be possible 
 for all of these distinct sets of modules to work in your application without 
 depending on too many other modules being present or loaded in order to function.
 
