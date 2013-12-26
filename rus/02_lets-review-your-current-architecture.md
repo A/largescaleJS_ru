@@ -34,7 +34,7 @@
 можете столкнуться, используя такой подход.
 
 
-##### 1. Насколько ваша архитектура готова к переиспользованию прямо сейчас?
+##### 1. Подразумевает ли ваша архитектура к переиспользование кода прямо сейчас?
 
 Могут ли отдельные модули использоваться самостоятельно? Являются ли они
 автономными? Мог бы я прямо сейчас взять один из модулей вашего большого 
@@ -61,27 +61,29 @@ for all of these distinct sets of modules to work in your application without
 depending on too many other modules being present or loaded in order to function.
 
 
-##### 3. If specific parts of your application fail, can it still function? 
+##### 3. Сможет ли ваше приложение работать дальше, если его отдельная часть сломается?
 
-If you're building a GMail-like application and your webmail module (or modules
-) fail, this shouldn't block the rest of the UI or prevent users from being able
-to use other parts of the page such as chat. At the same time, as per before, 
-modules should ideally be able to exist on their own outside of your current 
-application architecture. In my talks I mention dynamic dependency (or module) 
-loading based on expressed user-intent as something related. For example, in 
-GMail's case they might have the chat module collapsed by default without the 
-core module code loaded on page initialization. If a user expressed an intent to
-use the chat feature, only then would it be dynamically loaded. Ideally, you 
-want this to be possible without it negatively affecting the rest of your 
-application.
+Если вы разрабатываете приложения, подобные Gmail, и ваш webmail-модуль (или 
+группа модулей) перестанет работать из-за ошибки, то это не должно заблокировать
+пользовательский интерфейс, или помешать пользователям использовать другие части
+вашего приложения, к примеру, такие как чат. В то же время, как было сказано
+раньше, было бы идеально, если бы модули могли работать и за пределами вашей
+архитектуры. В моей лекции я упоминал динамические зависимости — возможность
+загружать модули исходя из определенных действий пользователя. (???) К примеру,
+ребята из Gmail могли бы изначально держать модуль чата закрытым, не загружая его
+код при открытии страницы. Если же пользователь решит использовать функцию чата,
+то соответствующий модуль будет динамически загружен и выполнен. В идеальном
+случае, хотелось бы выполнить это без каких-то негативных эффектов в вашем
+приложении.
 
 
-##### 4. How easily can you test individual modules?
+##### 4. Насколько легко вы сможете тестировать отдельные модули?
 
-When working on systems of significant scale where there's a potential for
-millions of users to use (or mis-use) the different parts it, it's essential 
-that modules which may end up being re-used across a number of different 
-applications be sufficiently tested. Testing needs to be possible for when the 
-module both inside and outside of the architecture for which it was initially 
-built. In my view, this provides the most assurance that it shouldn't break if 
-dropped into another system.
+Когда вы работаете над масштабными системами, есть вероятность, что
+различные части этой системы будут использовать миллионы пользователей.
+Вполне вероятно, что ваши модули будут использоваться не только
+в предусмотренных вами ситуациях. В конечном счете, код может использоваться
+повторно в целом ряде различных окружений, и важно, чтобы модули были достаточно
+протестированны. Тестировать модули неоходимо и внутри архитектуры для которой
+он был изначально разработан, и снаружи. По моему мнению, это дает наибольшую
+гарантию того, что модуль не сломается при попадании в другую систему.
