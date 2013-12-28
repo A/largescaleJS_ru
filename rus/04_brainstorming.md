@@ -1,36 +1,37 @@
-### Brainstorming
+### Мозговой штурм
 
-Let's think about what we're trying to achieve for a moment. 
+Давайте на мгновение задумаемся достичь то, что нам нужно.
 
-We want a loosely coupled architecture with functionality broken down into **
-independent modules** with ideally no inter-module dependencies. Modules **
-speak** to the rest of the application when something interesting happens and
-an**intermediate layer** interprets and reacts to these messages. 
+Мы хотим слабосвязанную архитектуру с функциональностью, разбитой
+на **независимые модули**, которые в идеале не должны иметь зависимостей от друг
+друга. Когда происходит что-то интересное, модули **сообщают** об этом другим
+частям приложения, промежуточный слой интерпретирует их сообщения и необходимым
+образом реагирует на них.
 
-For example, if we had a JavaScript application responsible for an online
-bakery, one such 'interesting' message from a module might be 'batch 42 of bread
-rolls is ready for dispatch
-'. 
+Для примера, у нас есть JavaScript-приложение, отвечающее за онлайн-пекарню,
+и одно из интересных сообщений может быть таким: «Партия из 42 батонов готова
+к доставке».
 
-We use a different layer to interpret messages from modules so that a) modules
-don't directly access the core and b) modules don't need to directly call or 
-interact with other modules. This helps prevent applications from falling over 
-due to errors with specific modules and provides us a way to kick-start modules 
-which have fallen over.
+Мы используем отдельный слой для обработки сообщений от модулей для того, чтобы
+а) модули не взаимодействовали напрямую с ядром б) модули не взаимодействовали
+напрямую друг с другом. Это помогает удержать приложение от падения из-за
+различных ошибок внутри какого-нибудь модуля, и позволяет нам перезапускать
+модули если они перестали работать из-за ошибки.
 
-Another concern is security. The reality is that most of us don't consider
-internal application security as that much of a concern. We tell ourselves that 
-as we're structuring the application, we're intelligent enough to figure out 
-what should be publicly or privately accessible.
+Еще один момент — безопасность. В действительгности, многие из нас не заботятся
+в должной мере о внутренней безопасности приложений. Когда мы определяем
+структуру приложений, мы говорим себе, что мы достаточно умны для того, чтобы
+понимать что должно быть доступно публично, а что приватно. 
 
-However, wouldn't it help if you had a way to determine what a module was
-permitted to do in the system? eg. if I know I've limited the permissions in my 
-system to not allow a public chat widget to interface with an admin module or a 
-module with DB-write permissions, I can limit the chances of someone exploiting 
-vulnerabilities I have yet to find in the widget to pass some XSS in there. 
-Modules shouldn’t be able to access everything. They probably can in most 
-current architectures, but do they really need to be able to?
+Как бы то ни было, поможет ли это если вы решите определить что именно разрешено
+модулю выполнять в системе? К примеру, в моей системе, ограничив доступ из
+модуля веб-чата к интерфейсу модуля администрирования, я смогу уменьшить шансы
+на успешное экплуатирование XSS уязвимостей, которые я не смог найти в виджете.
+Модули не должны иметь доступ ко всему. Вероятно, в вашей существующей
+архитектуре они могут использовать любые части системы, но уверенны ли вы, что
+это действительно необходимо?
 
-Having an intermediate layer handle permissions for which modules can access
-which parts of your framework gives you added security. This means a module is 
-only able to do at most what we’ve permitted it do.
+Промежуточный слой, проверяющий имеет ли модуль доступ к определенной части
+вашего фреймворка, обеспечивает большую безопасность вашей системы. Фактически,
+это значит что модули могут взаимодействовать только с теми компонентами 
+системы, с которым мы разрешим им взаимодействовать.
