@@ -1,60 +1,69 @@
-### Think Long Term
+### Думай о будущем
 
-When devising the architecture for your large application, it's important to
-think ahead. Not just a month or a year from now, but beyond that. What might 
-change? It's of course impossible to guess exactly how your application may grow,
-but there's certainly room to consider what is likely. Here, there is at least 
-one specific aspect of your application that comes to mind.
+В процессе разработки архитектуры большого приложения, очень важно думать
+о будущем. Не только о том, что будет через месяц или год, но и о том, 
+что будет после этого. Что может измениться? Конечно, невозможно достаточно
+точно предсказать как ваше приложение будет развиваться, но, вне всякого
+сомнения, имеет смысл подумать об этом. Думаю, что найдется, хотя бы один
+специфический аспект вашего приложения, о котором стоит поразмыслить.
 
+<!-- TODO: Не уверен, что точно понял смысл: -->
 Developers often couple their DOM manipulation code quite tightly with the rest
 of their application - even when they've gone to the trouble of separating their
 core logic down into modules. Think about it..why is this not a good idea if we'
-re thinking long-term?
+re thinking long-term? 
 
 One member of my audience suggested that it was because a rigid architecture
 defined in the present may not be suitable for the future. Whilst certainly true,
 there's another concern that may cost even more if not factored in.
 
-You may well decide to **switch** from using Dojo, jQuery, Zepto or YUI to
-something entirely different for reasons of performance, security or design in 
-the future. This can become a problem because libraries are not easily 
-interchangeable and have high switching costs if tightly coupled to your app.
+В будущем, вы можете принять решение о **замене** Dojo, jQuery, Zepto или YUI на
+что-нибудь совершенно иное. Причиной такого перехода может быть
+производительность, безопасность или дизайн. Это может стать серьезной
+проблемой, потому как библиотеки не предусматривают простой замены.
+Цена замены библиотеки будет высокой если ваше приложение тесно с ней связано.
 
-If you're a Dojo developer (like some of the audience at my talk), you may not
-have something better to switch to in the present, but who is to say that in 2-3
-years something better doesn't come out that you'll want to switch to?
-.
+Если вы используете Dojo (как многие слушатели на моей лекции), вы можете
+быть уверены, что нет чего-то более хорошего, на что имело бы смысл перейти.
+Но можете ли вы быть уверены, что в течении двух-трех лет не появится что-нибудь
+получше, на что вы можете решить перейти?
 
-This is a relatively trivial decision in smaller codebases but for larger
-applications, having an architecture which is flexible enough to support**not**
+Такое решиние может быть относительно простым для небольших проектов, но **не для
+больших приложений**, архитектура которых вполне достаточна их поддержки.
 
-To summarize, if you reviewed your architecture right now, could a decision to
-switch libraries be made without rewriting your entire application?. If not, 
-consider reading on because I think the architecture being outlined today may be
-of interest.
+Подводя итог, посмотрите на вашу архитектуру прямо сейчас. Сможете ли вы 
+прямо сейчас сменить вашу библиотеку на любую другую, не переписывая при этом
+ваше приложение полностью? Если это не так, то вам стоит продолжить чтение. 
+Я думаю, что в предложенной здесь архитектуре вы найдете что-нибудь интересное. 
 
-There are a number of influential JavaScript developers who have previously
-outlined some of the concerns I've touched upon so far. Three key quotes I would
-like to share from them are the following:
+Некоторые из известных JavaScript разработчиков раньше уже излагали некоторые
+из проблем, о которых я написал раньше. Вот три ключевых цитаты, которыми 
+я бы хотел поделиться с вами.
 
-"The secret to building large apps is never build large apps. Break your
-applications into small pieces. Then, assemble those testable, bite-sized pieces
-into your big application
-" - **Justin Meyer, author JavaScriptMVC**
+«Секрет создания больших приложений в том, чтобы никогда не создавать больших
+приложений. Разбейте ваши приложения на маленькие части, а затем собирайте из
+этих маленькие тестируемых фрагментов ваше большое приложение»
 
-"The key is to acknowledge from the start that you have no idea how this will
-grow. When you accept that you don't know everything, you begin to design the 
-system defensively. You identify the key areas that may change, which often is 
-very easy when you put a little bit of time into it. For instance, you should 
-expect that any part of the app that communicates with another system will 
-likely change, so you need to abstract that away.
-" - **Nicholas Zakas, author 'High-performance JavaScript websites'**
+**Justin Meyer, author JavaScriptMVC**
 
-and last but not least:
+<!-- TODO: Как-то не по-русски, ничего непонятно… -->
+«Ключ в том, чтобы признаться себе с самого начала в том, что вы понятия
+не имеете, как ваше приложение будет расти. Когда вы соглашаетесь с этим,
+вы начинаете проектировать систему оборонительно(?). Вы определите ключевые
+области, которые могут измениться, очень часто это не составляет труда, если
+потратить на это немного времени. К примеру, вы ожидаете, что любая часть
+приложения, которая взаимодействует с другой системой, скорее всего измениться,
+так что здесь вам нужна будет абстракция.»
 
-"The more tied components are to each other, the less reusable they will be,
-and the more difficult it becomes to make changes to one without accidentally 
-affecting another
-" - **Rebecca Murphey, author of jQuery Fundamentals.** These principles are
-essential to building an architecture that can stand the test of time and should
-always be kept in mind.
+**Nicholas Zakas, author 'High-performance JavaScript websites'**
+
+И последняя, но не менее важная цитата.
+
+«Чем сильнее компоненты связаны между собой, тем меньше возможностей
+их переиспользовать, и тем сложнее вносить изменения, не получая при этом
+никаких побочных эффектов в неожиданных местах»
+
+**Rebecca Murphey, author of jQuery Fundamentals.**
+
+Эти принципы очень важны для создания архитектуры, которая сможет выдержать
+испытание временем. Их стоит всегда иметь в виду.
