@@ -1,0 +1,11 @@
+---
+layout: page
+title: "Паттерны для масштабируемых JavaScript приложений"
+subtitle: "Автор: <a href='#'>Addy Osmani</a>. Технический обзор: <a href='#'>Andrée Hansson</a>"
+---
+
+<ul class="chapters-list">
+  {% for post in site.posts reversed %}
+    <li class="chapters-list__item"><a class="chapters-list__link" href="{{ post.url }}">{{ post.title }}</li>
+  {% endfor %}
+</ul>

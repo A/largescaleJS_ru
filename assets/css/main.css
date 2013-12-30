@@ -1,0 +1,22 @@
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #404040;
+}
+.wrapper {
+  width: 600px;
+  margin: 80px auto 0;
+}
+.page-header {
+  border-bottom: 1px solid #ddd;
+}
+.page-heder__title {
+  font-size: 2em;
+}
+.page-heder__subtitle {
+  font-size: 1em;
+  color: #bfbfbf;
+}
+.content {
+  line-height: 1.4;
+}
