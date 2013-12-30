@@ -4,16 +4,25 @@
   <meta charset="UTF-8">
   <title>Addy Osmani — Паттерны для масштабируемых JavaScript приложений</title>
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/vendor/social-likes/social-likes.css">
 </head>
 <body>
   <div class="wrapper">
     <div class="page-header">
+
       <h1 class="page-heder__title">{{ page.title }}</h1>
       <h4 class="page-heder__subtitle">{{ page.subtitle }}</h4>
     </div>
+    <ul class="social-likes">
+      <li class="facebook" title="Share link on Facebook">Facebook</li>
+      <li class="vkontakte" title="Share link on VK">Вконтакте</li>
+      <li class="twitter" title="Share link on Twitter">Twitter</li>
+    </ul>
     <div class="content">
       {{ content }}
     </div>
   </div>
+  <script src="/assets/vendor/jquery/jquery-2.0.3.min.js"></script>
+  <script src="/assets/vendor/social-likes/social-likes.min.js"></script>
 </body>
 </html>
