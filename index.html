@@ -4,8 +4,9 @@ title: "Паттерны для масштабируемых JavaScript прил
 subtitle: "Автор: <a href='#'>Addy Osmani</a>. Технический обзор: <a href='#'>Andrée Hansson</a>"
 ---
 
+<h3>Оглавление</h3>
 <ul class="chapters-list">
   {% for post in site.posts reversed %}
-    <li class="chapters-list__item"><a class="chapters-list__link" href="{{ post.url }}">{{ post.title }}</li>
+    <li class="chapters-list__item"><a class="chapters-list__link" href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>

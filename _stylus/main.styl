@@ -1,23 +1,83 @@
 @import 'nib'
 
+
+// global-reset()
+
+* 
+  box-sizing: border-box
+
+
 html
   font-family "Helvetica Neue", Helvetica, Arial, sans-serif
-  font-size 16px
+  font-size 18px
+
+body
+  // background-color: #FAF7E6
+  reset-body()
   color #404040
 
+hr
+  display: block
+  size 100% 1px
+  margin 1em 0 1.5em
+  background-color #888
+  border none
+/**
+ * Headers
+ */
+
+h1
+h2
+h3
+h4
+h5
+  reset-font()
+  reset-box-model()
+  text-shadow 0 1px 0 #FFF
+  margin-bottom .5em
+  small
+    font-size .6em
+    color #888
+
+h1
+  font-size 2em
+
+h2
+  font-size 1.8em
+
+h3
+  font-size 1.3em
+
+h4
+  font-size 1.2em
+
+h5
+  font-size 1em
+  font-weight bold
+
+ul
+ol
+  margin 1em 0
+
+blockquote
+  margin 0
+  padding-left 32px
+  border-left solid 6px #888
+
 .wrapper
-  width 600px
-  margin 80px auto 0
+  width 780px
+  margin 60px auto 0
 
-.page-header
-  border-bottom 1px solid #ddd
+.social-likes
+  text-align: right
+  width 100%
 
-.page-heder__title
-  font-size: 2em
+.social-likes__button
+  opacity .5
+  &:hover
+    opacity 1
 
-.page-heder__subtitle
-  font-size: 1em
-  color #BFBFBF
 
 .content
+  margin 2em 0 120px
   line-height: 1.4
