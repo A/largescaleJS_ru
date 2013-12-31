@@ -1,6 +1,7 @@
 ---
-layout: post
+layout: page
 title: "Тест.  Глава 1. Что из себя представляет «большое» JavaScript приложение?"
+subtitle: "<a href='/'>Оглавление</a>"
 ---
 
 
