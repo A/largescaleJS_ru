@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Паттерны для масштабируемых JavaScript приложений"
-subtitle: "Автор: <a href='#'>Addy Osmani</a>. Технический обзор: <a href='#'>Andrée Hansson</a>"
+subtitle: "Автор: <a href='http://twitter.com/addyosmani'>Addy Osmani</a>. Технический обзор: <a href='http://twitter.com/peolanha'>Andrée Hansson</a>"
 ---
 
 {% include intro.html %}
 
-<h3>Оглавление</h3>
-<ul class="chapters-list">
+<h2>Оглавление</h2>
+<ul>
   {% for post in site.posts reversed %}
-    <li class="chapters-list__item"><a class="chapters-list__link" href="{{ post.url }}">{{ post.title }}</a></li>
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>

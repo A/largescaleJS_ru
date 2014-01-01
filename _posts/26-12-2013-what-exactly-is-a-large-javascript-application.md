@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Глава 1. Что из себя представляет «большое» JavaScript приложение?"
-subtitle: "<a href='/'>Оглавление</a>"
 ---
 
 
@@ -24,8 +23,9 @@ subtitle: "<a href='/'>Оглавление</a>"
 что оно подходит ближе всего к тому, что действительно представляет из себя
 большое JavaScript приложение.
 
+{:class="message"}
 По моему мнению, большие JavaScript приложения **не тривиальны** и требуют
 **намного** больших усилий разработчиков для их поддержки, where most heavy
-lifting of data manipulation and display falls to the**browser**. 
+lifting of data manipulation and display falls to the **browser**. 
 
-Последняя часть определения, вероятно, самая ваджная.
+Последняя часть определения, вероятно, самая важная.
