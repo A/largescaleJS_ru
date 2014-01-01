@@ -1,2 +1,9 @@
 author: "Addy Osmani"
 title: "Паттерны для масштабируемых JavaScript приложений"
+
+markdown: kramdown
+exclude: ['Gemfile', 'Gemfile.lock', 'makefile']
+
+production_url: http://shuvalov-anton.github.io/Patterns-For-Large-Scale-JavaScript-Application-Architecture/
+baseurl: /Patterns-For-Large-Scale-JavaScript-Application-Architecture/
+permalink: /:title
