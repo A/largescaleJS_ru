@@ -34,6 +34,13 @@ subtitle: "<a href='/'>Оглавление</a>"
 *   libraries/toolkits
 *   an application core.
 
+**Что почитать по теме?**
+[Rebecca Murphey - Structuring JavaScript Applications][1]  
+[Peter Michaux - MVC Architecture For JavaScript Applications][2]  
+[StackOverflow - A discussion on modern MVC frameworks][3]  
+[Doug Neiner - Stateful Plugins and the Widget Factory][4]  
+{:class="message info"}
+
 Вы, вероятно, так же разбиваете различные функции ваших приложений на наборы
 модулей. Либо используете какие-то иные паттерны для подобного разделения. Это
 замечательно, но здесь есть несколько потенциальных проблем, с которыми вы
@@ -93,3 +100,8 @@ depending on too many other modules being present or loaded in order to function
 протестированны. Тестировать модули неоходимо и внутри архитектуры для которой
 он был изначально разработан, и снаружи. По моему мнению, это дает наибольшую
 гарантию того, что модуль не сломается при попадании в другую систему.
+
+[1]: http://blog.rebeccamurphey.com/code-org-take-2-structuring-javascript-applic
+[2]: http://michaux.ca/articles/mvc-architecture-for-javascript-applications
+[3]: http://stackoverflow.com/questions/5112899/knockout-js-vs-backbone-js-vs
+[4]: http://msdn.microsoft.com/en-us/scriptjunkie/ff706600

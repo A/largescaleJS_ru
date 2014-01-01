@@ -1,19 +1,26 @@
 @import 'nib'
 
+tinyshadow = 0 1px 1px rgba(0,0,0,.15)
 
-// global-reset()
+
+underlineOnHover()
+  &
+    text-decoration none
+  &:hover
+    text-decoration underline
+
 
 * 
   box-sizing: border-box
 
 
 html
-  font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family Georgia, 'Times New Roman', serif
   font-size 18px
 
 body
-  // background-color: #FAF7E6
   reset-body()
+  background-color #F0EFE8
   color #404040
 
 hr
@@ -22,6 +29,9 @@ hr
   margin 1em 0 1.5em
   background-color #888
   border none
+  box-shadow tinyshadow
+
+
 /**
  * Headers
  */
@@ -64,8 +74,9 @@ blockquote
   padding-left 32px
   border-left solid 6px #888
 
+
 .wrapper
-  width 780px
+  width 740px
   margin 60px auto 0
 
 .social-likes
@@ -77,10 +88,14 @@ blockquote
   &:hover
     opacity 1
 
+.intro
+  margin-bottom 18px
+  font-size 14px
+  color #888
 
 .content
   margin 2em 0 120px
-  line-height: 1.4
+  line-height: 1.5
 
 
 .prevnext
@@ -88,9 +103,7 @@ blockquote
   clearfix()
 
 .prevnext__link
-  text-decoration none
-  &:hover
-    text-decoration underline
+  underlineOnHover()
 
 .prevnext__previous
 .prevnext__next
@@ -102,3 +115,19 @@ blockquote
 .prevnext__next
   float right
   text-align right
+
+
+.chapters-list__link
+  underlineOnHover()
+
+.message
+  padding .5em 1em
+  background-color #FFF
+  border #000
+  box-shadow tinyshadow
+  &.alert
+    background-color #F0E9B4
+    border #CCC699
+  &.info
+    background-color #B4D2F0
+    border #99B3CC

@@ -4,13 +4,14 @@
   box-sizing: border-box;
 }
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 18px;
 }
 body {
   line-height: 1;
   color: #000;
   background: #fff;
+  background-color: #f0efe8;
   color: #404040;
 }
 hr {
@@ -20,6 +21,8 @@ hr {
   margin: 1em 0 1.5em;
   background-color: #888;
   border: none;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
 }
 /**
  * Headers
@@ -75,7 +78,7 @@ blockquote {
   border-left: solid 6px #888;
 }
 .wrapper {
-  width: 780px;
+  width: 740px;
   margin: 60px auto 0;
 }
 .social-likes {
@@ -92,9 +95,14 @@ blockquote {
   -ms-filter: none;
   filter: none;
 }
+.intro {
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: #888;
+}
 .content {
   margin: 2em 0 120px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .prevnext {
   margin: 32px 0;
@@ -124,4 +132,25 @@ blockquote {
 .prevnext__next {
   float: right;
   text-align: right;
+}
+.chapters-list__link {
+  text-decoration: none;
+}
+.chapters-list__link:hover {
+  text-decoration: underline;
+}
+.message {
+  padding: 0.5em 1em;
+  background-color: #fff;
+  border: 1px solid #000;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+.message.alert {
+  background-color: #f0e9b4;
+  border: 1px solid #ccc699;
+}
+.message.info {
+  background-color: #b4d2f0;
+  border: 1px solid #99b3cc;
 }
