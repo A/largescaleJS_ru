@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Глава 2. Давайте обсудим вашу существующую архитектуру"
-subtitle: "<a href='/'>Оглавление</a>"
 ---
 
 <!-- ### Давайте обсудим вашу существующую архитектуру -->
@@ -34,7 +33,7 @@ subtitle: "<a href='/'>Оглавление</a>"
 *   libraries/toolkits
 *   an application core.
 
-**Что почитать по теме?**
+**Ссылки по теме:**  
 [Rebecca Murphey - Structuring JavaScript Applications][1]  
 [Peter Michaux - MVC Architecture For JavaScript Applications][2]  
 [StackOverflow - A discussion on modern MVC frameworks][3]  

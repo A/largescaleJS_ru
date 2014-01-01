@@ -1,35 +1,46 @@
 @import 'nib'
 
-tinyshadow = 0 1px 1px rgba(0,0,0,.15)
+/**
+ * Variables
+ */
+shadow__tiny = 0 1px 1px rgba(0,0,0,.15)
+shadow__pressed_effect = 0 1px 0 #FFF
+font__base = Georgia, 'Times New Roman', serif
+font__size = 18px
+font__size_small = 14px
+color__bg = #F0EFE8
+color__text = #404040
+color__text_second = #888
+color__link = #0066CC
+color__link_visited = #550066
+color__blue = #B4D2F0
+color__blue_dark = #99B3CC
+color__yellow = #F0E9B4
+color__yellow_dark = #CCC699
 
-
-underlineOnHover()
-  &
-    text-decoration none
-  &:hover
-    text-decoration underline
-
-
+/**
+ * Use the border-box, Luke
+ */
 * 
   box-sizing: border-box
 
 
 html
-  font-family Georgia, 'Times New Roman', serif
-  font-size 18px
+  font-family font__base
+  font-size font__size
 
 body
   reset-body()
-  background-color #F0EFE8
-  color #404040
+  background-color color__bg
+  color color__text
 
 hr
   display: block
   size 100% 1px
   margin 1em 0 1.5em
-  background-color #888
+  background-color color__text
   border none
-  box-shadow tinyshadow
+  box-shadow shadow__tiny
 
 
 /**
@@ -43,11 +54,11 @@ h4
 h5
   reset-font()
   reset-box-model()
-  text-shadow 0 1px 0 #FFF
+  text-shadow shadow__pressed_effect
   margin-bottom .5em
   small
     font-size .6em
-    color #888
+    color color__text_second
 
 h1
   font-size 2em
@@ -69,41 +80,36 @@ ul
 ol
   margin 1em 0
 
-blockquote
-  margin 0
-  padding-left 32px
-  border-left solid 6px #888
+a
+  color color__link
+  text-decoration none
+  &:hover
+    text-decoration underline
+  &:visited
+    color color__link_visited
+    &.ignore-visited
+      color color__link
 
 
 .wrapper
   width 740px
   margin 60px auto 0
 
-.social-likes
-  text-align: right
-  width 100%
-
-.social-likes__button
-  opacity .5
-  &:hover
-    opacity 1
 
 .intro
-  margin-bottom 18px
-  font-size 14px
-  color #888
+  margin-bottom 1em
+  font-size font__size_small
+  color color__text_second
+
 
 .content
-  margin 2em 0 120px
+  margin 2em 0 10em
   line-height: 1.5
 
 
 .prevnext
-  margin 32px 0
+  margin 2em 0
   clearfix()
-
-.prevnext__link
-  underlineOnHover()
 
 .prevnext__previous
 .prevnext__next
@@ -117,17 +123,11 @@ blockquote
   text-align right
 
 
-.chapters-list__link
-  underlineOnHover()
-
 .message
   padding .5em 1em
-  background-color #FFF
-  border #000
-  box-shadow tinyshadow
-  &.alert
-    background-color #F0E9B4
-    border #CCC699
+  box-shadow shadow__tiny
+  background-color color__blue
+  border color__blue_dark
   &.info
-    background-color #B4D2F0
-    border #99B3CC
+    background-color color__yellow
+    border color__yellow_dark
