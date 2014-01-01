@@ -1,9 +1,14 @@
-<div class="prevnext">
-  {% if page.previous %}
-  <div class="prevnext__previous">
-    <a class="prevnext__link" href="{{ page.previous.url }}">&larr; Предыдущая глава</a>{% endif %}
+{% if page.previous or page.next %}
+  <div class="prevnext">
+    {% if page.previous %}
+      <div class="prevnext__previous">
+        <a class="prevnext__link" href="{{ page.previous.url }}">&larr; Предыдущая глава</a>
+      </div>
+    {% endif %}
+    {% if page.next %}
+      <div class="prevnext__next">
+        <a class="prevnext__link" href="{{ page.next.url }}">Следующая глава &rarr;</a>
+      </div>
+    {% endif %}
   </div>
-  <div class="prevnext__next">
-    {% if page.next %}<a class="prevnext__link" href="{{ page.next.url }}">Следующая глава &rarr;</a>{% endif %}
-  </div>
-</div>
+{% endif %}
