@@ -96,3 +96,32 @@ blockquote {
   margin: 2em 0 120px;
   line-height: 1.4;
 }
+.prevnext {
+  margin: 32px 0;
+  zoom: 1;
+}
+.prevnext:before,
+.prevnext:after {
+  content: "";
+  display: table;
+}
+.prevnext:after {
+  clear: both;
+}
+.prevnext__link {
+  text-decoration: none;
+}
+.prevnext__link:hover {
+  text-decoration: underline;
+}
+.prevnext__previous,
+.prevnext__next {
+  width: 50%;
+}
+.prevnext__previous {
+  float: left;
+}
+.prevnext__next {
+  float: right;
+  text-align: right;
+}
