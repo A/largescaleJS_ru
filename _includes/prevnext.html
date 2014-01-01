@@ -2,12 +2,12 @@
   <div class="prevnext">
     {% if page.previous %}
       <div class="prevnext__previous">
-        <small><span>&larr;</span> <a href="{{ page.previous.url }}">Предыдущая глава</a></small>
+        <small><span>&larr;</span> <a href="{{ site.baseurl }}/{{ page.previous.url }}">Предыдущая глава</a></small>
       </div>
     {% endif %}
     {% if page.next %}
       <div class="prevnext__next">
-        <small><a href="{{ page.next.url }}">Следующая глава</a> <span>&rarr;</span></small>
+        <small><a href="{{ site.baseurl }}/{{ page.next.url }}">Следующая глава</a> <span>&rarr;</span></small>
       </div>
     {% endif %}
   </div>
