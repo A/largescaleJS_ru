@@ -92,7 +92,7 @@ a:visited.ignore-visited {
   color: #06c;
 }
 .wrapper {
-  width: 740px;
+  width: 720px;
   margin: 60px auto 0;
 }
 .intro {
@@ -103,6 +103,7 @@ a:visited.ignore-visited {
 .content {
   margin: 2em 0 10em;
   line-height: 1.5;
+  position: relative;
 }
 .prevnext {
   margin: 2em 0;
@@ -137,4 +138,19 @@ a:visited.ignore-visited {
 .message.info {
   background-color: #f0e9b4;
   border: 1px solid #ccc699;
+}
+.sidenote {
+  position: absolute;
+  left: 100%;
+  width: 240px;
+  margin-left: 2em;
+  padding: 1em;
+  font-size: 14px;
+  background-color: #f0e9b4;
+  border: 1px solid #ccc699;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+.sidenote .num {
+  color: #888;
 }
