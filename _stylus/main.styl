@@ -92,7 +92,7 @@ a
 
 
 .wrapper
-  width 740px
+  width 720px
   margin 60px auto 0
 
 
@@ -104,7 +104,8 @@ a
 
 .content
   margin 2em 0 10em
-  line-height: 1.5
+  line-height 1.5
+  position relative
 
 
 .prevnext
@@ -131,3 +132,15 @@ a
   &.info
     background-color color__yellow
     border color__yellow_dark
+
+.sidenote
+  absolute left 100%
+  width 240px
+  margin-left 2em
+  padding 1em
+  font-size font__size_small
+  background-color color__yellow
+  border color__yellow_dark
+  box-shadow shadow__tiny
+  .num
+    color color__text_second
