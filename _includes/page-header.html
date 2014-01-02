@@ -1,10 +1,10 @@
-<header>
-  <a class="rss-link" href="{{ site.production_url }}/atom.xml">r</a>
+<header class="page-header">
+  <a class="page-header__rss-link" href="{{ site.production_url }}/atom.xml">r</a>
   <h4><small>
     {%if page.subtitle %}
       {{ page.subtitle }}
     {% else %}
       <a href="{{ site.baseurl }}" class="ignore-visited">{{ site.author }} «{{ site.title }}»</a>
     {% endif %}</small></h4>
-  <h1>{{ page.title }}</h1>
+  <h1><a class="page-header__title-link" href="{{ site.production_url }}{{ page.url }}">{{ page.title }}</a></h1>
 </header>

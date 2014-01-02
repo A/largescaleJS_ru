@@ -162,7 +162,7 @@ a:visited.ignore-visited {
 .sidenote .num {
   color: #888;
 }
-.rss-link {
+.page-header__rss-link {
   font-family: "IconicStroke";
   display: block;
   position: absolute;
@@ -171,10 +171,19 @@ a:visited.ignore-visited {
   color: #404040;
   text-shadow: 0 1px 0 #fff;
 }
-.rss-link:visited {
+.page-header__rss-link:visited {
   color: #404040;
 }
-.rss-link:hover {
+.page-header__rss-link:hover {
   color: #06c;
   text-decoration: none;
+}
+.page-header__title-link {
+  color: #404040;
+}
+.page-header__title-link:visited {
+  color: #404040;
+}
+.page-header__title-link:hover {
+  color: #06c;
 }
