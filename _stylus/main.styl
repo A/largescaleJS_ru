@@ -1,5 +1,5 @@
 @import '_nib'
-
+iconic-stroke('../iconic/')
 /**
  * Variables
  */
@@ -94,6 +94,7 @@ a
 .wrapper
   width 720px
   margin 60px auto 0
+  position relative
 
 
 .intro
@@ -144,3 +145,14 @@ a
   box-shadow shadow__tiny
   .num
     color color__text_second
+
+.rss-link
+  font-family "IconicStroke"
+  display block
+  absolute right 0
+  font-size 1.2em
+  color color__text_second
+  &:hover
+    color color__link
+  // font-size 14px
+  // margin-top 4px
