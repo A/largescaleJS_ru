@@ -1,0 +1,31 @@
+---
+layout: nil
+title : Atom Feed
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+  <title>{{ site.author.name }}</title>
+  <link href="{{ site.production_url }}/atom.xml" rel="self"/>
+  <link href="{{ site.production_url }}"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.production_url }}</id>
+  <author>
+    <name>{{ site.author }} «{{ site.title }}»</name>
+    <email>anton_shuvalov@me.com</email>
+  </author>
+
+  {% for post in site.posts %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    {% if post.extlink %}
+      <link href="{{ post.external_link }}"/>
+    {% else %}
+      <id>{{ site.production_url }}{{ post.id }}</id>
+      <link href="{{ site.production_url }}{{ post.url }}"/>
+      <content type="html">{{ post.content | xml_escape }}</content>
+    {% endif %}
+  </entry>
+  {% endfor %}
+</feed>
