@@ -167,9 +167,14 @@ a:visited.ignore-visited {
   display: block;
   position: absolute;
   right: 0;
-  font-size: 1.2em;
-  color: #888;
+  font-size: 1.4em;
+  color: #404040;
+  text-shadow: 0 1px 0 #fff;
+}
+.rss-link:visited {
+  color: #404040;
 }
 .rss-link:hover {
   color: #06c;
+  text-decoration: none;
 }
