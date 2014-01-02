@@ -115,6 +115,7 @@ a:visited.ignore-visited {
 }
 .prevnext {
   margin: 2em 0;
+  position: relative;
   zoom: 1;
 }
 .prevnext:before,
@@ -125,11 +126,20 @@ a:visited.ignore-visited {
 .prevnext:after {
   clear: both;
 }
+.prevnext__previous-arrow,
+.prevnext__next-arrow {
+  position: absolute;
+  font-size: 1rem;
+}
+.prevnext__previous-arrow {
+  left: -1.5em;
+}
+.prevnext__next-arrow {
+  right: -1.5em;
+}
 .prevnext__previous,
 .prevnext__next {
-  width: 50%;
-}
-.prevnext__previous {
+  width: 40%;
   float: left;
 }
 .prevnext__next {
