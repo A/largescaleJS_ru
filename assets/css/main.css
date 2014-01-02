@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'IconicStroke';
+  src: url("../iconic//iconic_stroke.eot");
+  src: local('☺'), url("../iconic//iconic_stroke.ttf") format('truetype'), url("../iconic//iconic_stroke.svg#iconic") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 /**
  * Variables
  */
@@ -94,6 +101,7 @@ a:visited.ignore-visited {
 .wrapper {
   width: 720px;
   margin: 60px auto 0;
+  position: relative;
 }
 .intro {
   margin-bottom: 1em;
@@ -153,4 +161,15 @@ a:visited.ignore-visited {
 }
 .sidenote .num {
   color: #888;
+}
+.rss-link {
+  font-family: "IconicStroke";
+  display: block;
+  position: absolute;
+  right: 0;
+  font-size: 1.2em;
+  color: #888;
+}
+.rss-link:hover {
+  color: #06c;
 }
