@@ -4,7 +4,7 @@
     {%if page.subtitle %}
       {{ page.subtitle }}
     {% else %}
-      <a href="{{ site.baseurl }}" class="ignore-visited">{{ site.author }} «{{ site.title }}»</a>
+      <a href="/" class="ignore-visited">{{ site.author }} «{{ site.title }}»</a>
     {% endif %}</small></h4>
-  <h1><a class="page-header__title-link" href="{{ site.production_url }}{{ page.url }}">{{ page.title }}</a></h1>
+  <h1><a class="page-header__title-link" href="{{ page.url }}">{{ page.title }}</a></h1>
 </header>

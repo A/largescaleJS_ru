@@ -5,5 +5,5 @@ markdown: kramdown
 exclude: ['Gemfile', 'Gemfile.lock', 'makefile']
 
 production_url: http://largescalejavascript.ru/
-baseurl: ''
+baseurl: /
 permalink: /:title
