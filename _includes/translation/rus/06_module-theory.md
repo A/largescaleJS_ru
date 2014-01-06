@@ -25,18 +25,19 @@
 о том, что происходит в других частях системы. Вместо этого мы передаем
 эту ответственность медиатору и фасаду. 
 
-This is by design because if a module only cares about letting the system know
-when something of interest happens without worrying if other modules are running,
-a system is capable of supporting adding, removing or replacing modules without 
-the rest of the modules in the system falling over due to tight coupling.
+Архитектура спроектирована именно так — если модуль забатится исключительно о том,
+чтобы уведомить систему об интересующих ее происшествиях, и не волнуется
+запущены ли другие модули, то система может добавлять, удалять или заменять
+модули не ломая при этом другие модули в системе из-за сильной связанности.
 
-Loose coupling is thus essential to this idea being possible. It facilitates
-easier maintainability of modules by removing code dependencies where possible. 
-In our case, modules should not rely on other modules in order to function 
-correctly. When loose coupling is implemented effectively, its straight-forward 
-to see how changes to one part of a system may affect another.
+Слабая связанность — это необходимое условие для того, чтобы такая идея была
+возможна. Она делает поддержку модулей проще, удаляя завсимости в кода там,
+где это возможно. В вашем случае, модули не должны зависеть от порядка загрузки
+других модулей для того, чтобы работать корректно. Когда слабая связанность
+реализованна эффективно, становится явно видно, как изменения в одной части
+системы влияют на другие части.
 
-In JavaScript, there are several options for implementing modules including the
-well-known module pattern and object literals. Experienced developers will 
-already be familiar with these and if so, please skip ahead to the section on 
-CommonJS modules.
+В JavaScript есть несколько мнений о том, как могут быть реализованы модули,
+включая шаблон «Модуль» и Object Literal. Опытные разработчики должно быть уже
+знакомы с ними. Если это так, то, пожалуйста, пропустите следующую главу, и 
+переходите сразу к главе «CommonJS Modules».
