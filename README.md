@@ -4,6 +4,17 @@
 Перевод на русский язык. Addy Osmani [в курсе][1].
 
 
+### Файлы перевода
+
+Главы на английском языке и на русском лежат в [здесь][2]
+
+### Гайдлайн
+
+Мы придерживаемся гайдлайна по оформлению markdown от Frontender Magazine.
+Ознакомиться с ним можно [здесь][3]
+
+
+
 ### Верстка и все такое
 
     # Запуск Stylus
@@ -14,3 +25,5 @@
 
 
 [1]: https://twitter.com/addyosmani/status/415195066895171584
+[2]: https://github.com/shuvalov-anton/Patterns-For-Large-Scale-JavaScript-Application-Architecture/tree/gh-pages/_includes/translation
+[3]: https://github.com/FMRobot/FM-guidelines
