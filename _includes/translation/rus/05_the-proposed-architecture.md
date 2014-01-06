@@ -1,13 +1,14 @@
-## The Proposed Architecture
+## Архитектура, которую я предлагаю вам
 
-The solution to the architecture we seek to define is a combination of three
-well-known design patterns: the**module**, **facade** and **mediator**.
+Архитектура, о которой мы говорим, представляет из себя комбинацию трех
+известных шаблонов проектирования: модуль, фасад и медиатор.
 
-Rather than the traditional model of modules directly communicating with each
-other, in this decoupled architecture, they'll instead only publish events of 
-interest (ideally, without a knowledge of other modules in the system). The 
-mediator pattern will be used to both subscribe to messages from these modules 
-and handle what the appropriate response to notifications should be. The facade 
-pattern will be used to enforce module permissions.
+В отличии от традиционной модели в которой модули напрямую взаимодействуют
+друг с другом, в этой слабосвязанной архитектуре модули всего лишь публикуют
+события (В идеале, не зная о других модулях в системе). Медиатор используется
+как для подписки на сообщения от модулей, так и для решения, каким должен быть
+ответ на уведомление. Паттерн фасад используется для ограничения действий
+разрешенных модулям.
 
-I will be going into more detail on each of these patterns below:
+В следующих главах я более детально расскажу о каждом из этих шаблонов
+проектирования.
