@@ -3,6 +3,15 @@
 
 Перевод на русский язык. Addy Osmani [в курсе][1].
 
+### Запуск сайта локально
+
+    
+    cd project-directory/
+    # Один раз установить зависимости
+    bundle install
+    # Запустить блог. Будет доступен на 4000-м порту localhost'а
+    bundle exec jekyll serve --watch
+
 
 ### Файлы перевода
 
