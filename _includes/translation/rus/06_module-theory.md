@@ -1,28 +1,29 @@
-### Module Theory 
+### Теория модулей
 
-You probably already use some variation of modules in your existing
-architecture. If however, you don't, this section will present a short primer on
-them.
+Вероятно, вы уже используете некоторую вариацию модуей в своей существующей
+архитектуре. Если это не так, то в этой главе я покажу вам как они устроены.
 
-Modules are an **integral** piece of any robust application's architecture and
-are typically single-purpose parts of a larger system that are interchangeable.
+Модули — это **целая** часть любой хорошей архитектуры приложения. Обычно,
+модули выполняют одну определенную задачу в более крупных системах, и могут быть
+взаимозаменяемы. (?)
 
-Depending on how you implement modules, it's possible to define dependencies
-for them which can be automatically loaded to bring together all of the other 
-parts instantly. This is considered more scalable than having to track the 
-various dependencies for them and manually load modules or inject script tags.
+В зависимости от реализации, в модулях можно определять их зависимости, которые
+могут быть автоматически загруженны, таким образо собирая вместе все компоненты
+системы. Такой подход считается более масштабируемым, в отличии от ручной
+загрузки модулей, или подстановки тега `<script>`.
 
-Any significantly non-trivial application should be built from modular
-components. Going back to GMail, you could consider modules independent units of
-functionality that can exist on their own, so the chat feature for example. It's
-probably backed by a chat module, however, depending on how complex that unit of
-functionality is, it may well have more granular sub-modules that it depends on.
-For example, one could have a module simply to handle the use of emoticons which
-can be shared across both chat and mail composition parts of the system.
+Каждое нетривиальное приложение должно создаваться из модульных компонентов.
+Возвращаясь к GMail, вы можете рассматривать модули, как независимые единицы
+функциональности, которая может существовать сама по себе. Например, 
+функция чата. Вероятно эта функция может быть основана на модуле чата, однако, 
+в зависи от сложности рассматривоемой функции, модуль может состоять и из более
+мелких вспомогательных модулей. Например, один из таких модулей мог бы
+обеспечивать использование смайликов. Такой модуль мог бы использоваться как
+в чате, так и в почте. 
 
-In the architecture being discussed, modules have a **very limited knowledge**
-of what's going on in the rest of the system. Instead, we delegate this 
-responsibility to a mediator via a facade.
+В рассматриваемой архитектуре, модули имеют  **очень ограниченные знания**
+о том, что происходит в других частях системы. Вместо этого мы передаем
+эту ответственность медиатору и фасаду. 
 
 This is by design because if a module only cares about letting the system know
 when something of interest happens without worrying if other modules are running,
