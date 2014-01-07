@@ -76,16 +76,16 @@ Miraglia.
 
 **Dojo** 
 
-Dojo attempts to provide 'class'-like functionality through `dojo.declare`,
-which can be used for amongst other things, creating implementations of the 
-module pattern. For example, if we wanted to declare`basket` as a module of the
-`store` namespace, this could be achieved as follows: 
+Dojo старается обеспечивать поведение похожее на классы, через `dojo.declare`,
+который, кроме создания «модулей», также используется и для других вещей.
+Давайте попробуем, для примера, опрелелить `basket` как модуль внутри неймспейса
+`store`:
 
-    //traditional way
+    // традиционный способ
     var store = window.store || {};
     store.basket = store.basket || {};
     
-    //using dojo.setObject
+    // с помощью dojo.setObject
     dojo.setObject("store.basket.object", (function() {
         var basket = [];
         function privateMethod() {
@@ -93,18 +93,19 @@ module pattern. For example, if we wanted to declare`basket` as a module of the
         }
         return {
             publicMethod: function(){
-                    privateMethod();
+                privateMethod();
             }
         };
     }()));
     
-
-which can become quite powerful when used with `dojo.provide` and mixins. 
+Лучшего результата можно добиться, используя `dojo.provide` и миксины.
 
 ** YUI ** 
 
-The following example is heavily based on the original YUI module pattern
-implementation by Eric Miraglia, but is relatively self-explanatory.
+
+Следующий код, по большей части, основан на примере реализации паттерна
+«модуль» в фреймворке YUI, разработанным Eric Miraglia, но несколько более
+самодокументирован.
 
     YAHOO.store.basket = function () {
     
@@ -113,8 +114,8 @@ implementation by Eric Miraglia, but is relatively self-explanatory.
     
         //"private" method:
         var myPrivateMethod = function () {
-                YAHOO.log("I can be accessed only from within YAHOO.store.basket");
-            }
+            YAHOO.log("I can be accessed only from within YAHOO.store.basket");
+        }
     
         return {
             myPublicProperty: "I'm a public property.",
@@ -141,9 +142,9 @@ wrapped inside the module pattern. Ben Cherry previously suggested an
 implementation where a function wrapper is used around module definitions in the
 event of there being a number of commonalities between modules.
 
-In the following example, a `library` function is defined which declares a new
-library and automatically binds up the`init` function to `document.ready` when
-new libraries (ie. modules) are created.
+В следующем примере, функция `library` используется для декларации новой
+библиотеки и, автомотически, при создании библиотеки (ie. модуля),
+связывает вызов `init` с `document.ready`.
 
     function library(module) {
       $(function() {
