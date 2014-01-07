@@ -162,3 +162,6 @@ event of there being a number of commonalities between modules.
          }
        };
     }());
+
+[3]: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
+[4]: http://groups.google.com/group/comp.lang.javascript/msg/9f58bd11bd67d937
