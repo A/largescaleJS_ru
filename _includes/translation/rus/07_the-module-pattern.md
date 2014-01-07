@@ -1,32 +1,33 @@
-##### The Module Pattern 
+##### Паттерн «Модуль»
 
-The module pattern is a popular design that pattern that encapsulates 'privacy',
-state and organization using closures. It provides a way of wrapping a mix of
-public and private methods and variables, protecting pieces from leaking into 
-the global scope and accidentally colliding with another developer's interface. 
-With this pattern, only a public API is returned, keeping everything else within
-the closure private.
+Паттерн «модуль» — это популярная реализация паттерна, инкапсулирующего «приватную»
+информацию, состояние и структуру используя замыкания. Это позволяет оборачивать
+в модули набор публичных и приватных методов и переменных, и предотвращать
+попадание этих переменных и методов в глобальный контекст, где они могут
+конфликтовать с интерфейсами других разработчиков. Паттерн «модуль» возвращает
+только публичную часть API, оставляя все остальное приватным, внутри замыканий.
 
-This provides a clean solution for shielding logic doing the heavy lifting
-whilst only exposing an interface you wish other parts of your application to 
-use. The pattern is quite similar to an immediately-invoked functional 
-expression
-([IIFE][3]) except that an object is returned rather than a function. 
+Это обеспечивает чистое решение для того, чтобы, скрыв логику от посторонних
+глаз, выполнять тяжелую работу исключительно через интерфейс, который вы
+определите для использования в других частях вашего приложения. Этот паттерн
+похож на  немедленно-вызываемые функциональые выражения ([IIFE][3]), 
+за исключением того, что модуль возвращен не объект, а функцию.
 
-It should be noted that there isn't really a true sense of 'privacy' inside
-JavaScript because unlike some traditional languages, it doesn't have access 
-modifiers. Variables can't technically be declared as being public nor private 
-and so we use function scope to simulate this concept. Within the module pattern,
-variables or methods declared are only available inside the module itself thanks
-to closure. Variables or methods defined within the returning object however are
-available to everyone.
+Нужно заметить, что в JavaScript нет настоящей приватности. В отличии
+от некоторых традиционных языков, JavaScript не имеет модификаторов доступа.
+Переменные технически не могут быть объявленны как публичные или приватные, и
+нам приходится использовать область видимости для того, чтобы эмулировать эту
+концепцию. Благодаря замыканию, объявленные внутри модуля переменные и методы
+доступны только изнутри этого модуля. Переменные и методы, объявленные внутри
+объекта, возвращаемого модулем, будут доступны всем.
 
-Below you can see an example of a shopping basket implemented using the pattern
-. The module itself is completely self-contained in a global object called
-`basketModule`. The `basket` array in the module is kept private and so other
-parts of your application are unable to directly read it. It only exists with 
-the module's closure and so the only methods able to access it are those with 
-access to its scope (ie.`addItem()`, `getItem()` etc). 
+Ниже вы можете увидеть корзину покупок, реализованную с помощью паттерна «модуль».
+Получившийся модуль находится в глобальном объекте `basketModule`, и содержит
+все, что ему необходимо. Находящийся внутри модуля, массив `basket` приватный,
+и другие части вашего приложения не могут напрямую взаимодействовать с ним. 
+Массив `basket` существует внутри замыкания, созданного модулем, и
+взаимодействовать с ним могут только методы, находящиеся в той же области
+видимости (например, `addItem()`, `getItem()`). 
 
     var basketModule = (function() {
         var basket = []; //private
@@ -46,7 +47,6 @@ access to its scope (ie.`addItem()`, `getItem()` etc).
             }
         }
     }());
-    
 
 Inside the module, you'll notice we return an `object`. This gets automatically
 assigned to`basketModule` so that you can interact with it as follows: 
