@@ -48,29 +48,31 @@
         }
     }());
 
-Inside the module, you'll notice we return an `object`. This gets automatically
-assigned to`basketModule` so that you can interact with it as follows: 
+Внутри модуля, как вы заметили, мы возвращаем объект. Этот объект автоматически
+прасваивается переменной `basketModule`, так что с ним можно взаимодействовать
+следующим образом:
 
-    //basketModule is an object with properties which can also be methods
+    //basketModule это объект со свойствами, которые могут также быть и методами:
     basketModule.addItem({item:'bread',price:0.5});
     basketModule.addItem({item:'butter',price:0.3});
     
     console.log(basketModule.getItemCount());
     console.log(basketModule.getTotal());
     
-    //however, the following will not work:
-    console.log(basketModule.basket);// (undefined as not inside the returned object)
-    console.log(basket); //(only exists within the scope of the closure)
+    // А следующий ниже код работать не будет:
+    console.log(basketModule.basket);// (undefined потому что не входит в вохвращаемый объект)
+    console.log(basket); // (массив доступен только из замыкания)
     
 
-The methods above are effectively namespaced inside `basketModule`.
+Методы выше, фактически, помещены в неймспейс `basketModule`.
 
-From a historical perspective, the module pattern was originally developed by a
-number of people including[Richard Cornford][4] in 2003. It was later
-popularized by Douglas Crockford in his lectures and re-introduced by Eric 
-Miraglia on the YUI blog.
+Истрически, паттерн «модуль» был разработан в 2003 году группой людей, в число
+которых входил [Richard Cornford][4]. Позднее, этот паттерн был популяризован
+Дугласом Крокфордом в его лекциях, и открыт занаво в блоге YUI благодаря Eric 
+Miraglia.
 
-How about the module pattern in specific toolkits or frameworks? 
+Как насчет того, чтобы посмотреть на реализацию «модуля» в разных тулкитах
+и фреймворках.
 
 **Dojo** 
 
