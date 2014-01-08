@@ -1,4 +1,4 @@
-##### Паттерн «Модуль»
+<!-- ##### Паттерн «Модуль» -->
 
 Паттерн «модуль» — это популярная реализация паттерна, инкапсулирующего «приватную»
 информацию, состояние и структуру используя замыкания. Это позволяет оборачивать
@@ -29,24 +29,27 @@
 взаимодействовать с ним могут только методы, находящиеся в той же области
 видимости (например, `addItem()`, `getItem()`). 
 
-    var basketModule = (function() {
-        var basket = []; //private
-        return { //exposed to public
-            addItem: function(values) {
-                basket.push(values);
-            },
-            getItemCount: function() {
-                return basket.length;
-            },
-            getTotal: function(){
-               var q = this.getItemCount(),p=0;
-                while(q--){
-                    p+= basket[q].price; 
-                }
-                return p;
+
+{% highlight javascript %}
+var basketModule = (function() {
+    var basket = []; //private
+    return { //exposed to public
+        addItem: function(values) {
+            basket.push(values);
+        },
+        getItemCount: function() {
+            return basket.length;
+        },
+        getTotal: function(){
+           var q = this.getItemCount(),p=0;
+            while(q--){
+                p+= basket[q].price; 
             }
+            return p;
         }
-    }());
+    }
+}());
+{% endhighlight %}
 
 Внутри модуля, как вы заметили, мы возвращаем объект. Этот объект автоматически
 прасваивается переменной `basketModule`, так что с ним можно взаимодействовать
