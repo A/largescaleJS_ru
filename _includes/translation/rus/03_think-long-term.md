@@ -7,15 +7,13 @@
 сомнения, имеет смысл подумать об этом. Думаю, что найдется, хотя бы один
 специфический аспект вашего приложения, о котором стоит поразмыслить.
 
-<!-- TODO: Не уверен, что точно понял смысл: -->
-Developers often couple their DOM manipulation code quite tightly with the rest
-of their application - even when they've gone to the trouble of separating their
-core logic down into modules. Think about it..why is this not a good idea if we'
-re thinking long-term? 
+Разработчики зачастую слишком сильно связывают манипуляцию с DOM-элементами и
+остальные части приложения, даже если они не поленились разделить бизнес логику
+на модули. Задумайтесь, почему в долгосрочной перспективе это плохая идея?
 
-One member of my audience suggested that it was because a rigid architecture
-defined in the present may not be suitable for the future. Whilst certainly true,
-there's another concern that may cost even more if not factored in.
+Один из слушателей моего доклада предположил, что такая негибкая архитектура
+может не работать в будущем. Это, конечно, верно, но есть другая проблема,
+игнорирование которой окажет еще более негативный эффект.
 
 В будущем, вы можете принять решение о **замене** Dojo, jQuery, Zepto или YUI на
 что-нибудь совершенно иное. Причиной такого перехода может быть
