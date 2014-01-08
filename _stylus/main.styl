@@ -9,7 +9,7 @@ shadow__pressed_effect = 0 1px 0 #FFF
 font__base = Georgia, 'Times New Roman', serif
 font__size = 18px
 font__size_small = 14px
-color__bg = #F8F8F8
+color__bg = #F0F0F0
 color__text = #404040
 color__text_second = #888
 color__link = #0066CC
@@ -81,7 +81,6 @@ a
     color color__link_visited
     &.ignore-visited
       color color__link
-
 
 .wrapper
   width 720px
@@ -165,3 +164,22 @@ a
    color color__text
   &:hover
     color color__link
+
+code
+  background-color #FFF
+  box-shadow shadow__tiny
+
+pre
+  font-size 0.8em
+  padding 18px 36px
+  overflow scroll
+  background-color #fff
+  box-shadow shadow__tiny
+
+code
+  font-family Consolas, Monaco, 'Andale Mono', monospace
+  padding 4px 4px 2px
+
+pre > code
+  background-color transparent
+  box-shadow none

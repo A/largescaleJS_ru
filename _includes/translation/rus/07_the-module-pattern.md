@@ -55,17 +55,19 @@ var basketModule = (function() {
 прасваивается переменной `basketModule`, так что с ним можно взаимодействовать
 следующим образом:
 
-    //basketModule это объект со свойствами, которые могут также быть и методами:
-    basketModule.addItem({item:'bread',price:0.5});
-    basketModule.addItem({item:'butter',price:0.3});
-    
-    console.log(basketModule.getItemCount());
-    console.log(basketModule.getTotal());
-    
-    // А следующий ниже код работать не будет:
-    console.log(basketModule.basket);// (undefined потому что не входит в вохвращаемый объект)
-    console.log(basket); // (массив доступен только из замыкания)
-    
+{% highlight javascript %}
+//basketModule это объект со свойствами, которые могут также быть и методами:
+basketModule.addItem({item:'bread',price:0.5});
+basketModule.addItem({item:'butter',price:0.3});
+
+console.log(basketModule.getItemCount());
+console.log(basketModule.getTotal());
+
+// А следующий ниже код работать не будет:
+console.log(basketModule.basket);// (undefined потому что не входит в возвращаемый объект)
+console.log(basket); // (массив доступен только из замыкания)
+{% endhighlight %}
+
 
 Методы выше, фактически, помещены в неймспейс `basketModule`.
 
@@ -84,23 +86,25 @@ Dojo старается обеспечивать поведение похоже
 Давайте попробуем, для примера, опрелелить `basket` как модуль внутри неймспейса
 `store`:
 
-    // традиционный способ
-    var store = window.store || {};
-    store.basket = store.basket || {};
-    
-    // с помощью dojo.setObject
-    dojo.setObject("store.basket.object", (function() {
-        var basket = [];
-        function privateMethod() {
-            console.log(basket);
+{% highlight javascript %}
+// традиционный способ
+var store = window.store || {};
+store.basket = store.basket || {};
+
+// с помощью dojo.setObject
+dojo.setObject("store.basket.object", (function() {
+    var basket = [];
+    function privateMethod() {
+        console.log(basket);
+    }
+    return {
+        publicMethod: function(){
+            privateMethod();
         }
-        return {
-            publicMethod: function(){
-                privateMethod();
-            }
-        };
-    }()));
-    
+    };
+}()));
+{% endhighlight %}
+
 Лучшего результата можно добиться, используя `dojo.provide` и миксины.
 
 ** YUI ** 
@@ -110,33 +114,35 @@ Dojo старается обеспечивать поведение похоже
 «модуль» в фреймворке YUI, разработанным Eric Miraglia, но несколько более
 самодокументирован.
 
-    YAHOO.store.basket = function () {
-    
-        //"private" variables:
-        var myPrivateVar = "I can be accessed only within YAHOO.store.basket .";
-    
-        //"private" method:
-        var myPrivateMethod = function () {
-            YAHOO.log("I can be accessed only from within YAHOO.store.basket");
+{% highlight javascript %}
+YAHOO.store.basket = function () {
+
+    //"private" variables:
+    var myPrivateVar = "I can be accessed only within YAHOO.store.basket .";
+
+    //"private" method:
+    var myPrivateMethod = function () {
+        YAHOO.log("I can be accessed only from within YAHOO.store.basket");
+    }
+
+    return {
+        myPublicProperty: "I'm a public property.",
+        myPublicMethod: function () {
+            YAHOO.log("I'm a public method.");
+
+            //Within basket, I can access "private" vars and methods:
+            YAHOO.log(myPrivateVar);
+            YAHOO.log(myPrivateMethod());
+
+            //The native scope of myPublicMethod is store so we can
+            //access public members using "this":
+            YAHOO.log(this.myPublicProperty);
         }
-    
-        return {
-            myPublicProperty: "I'm a public property.",
-            myPublicMethod: function () {
-                YAHOO.log("I'm a public method.");
-    
-                //Within basket, I can access "private" vars and methods:
-                YAHOO.log(myPrivateVar);
-                YAHOO.log(myPrivateMethod());
-    
-                //The native scope of myPublicMethod is store so we can
-                //access public members using "this":
-                YAHOO.log(this.myPublicProperty);
-            }
-        };
-    
-    }();
-    
+    };
+
+}();
+{% endhighlight %}
+
 
 ** jQuery ** 
 
@@ -149,22 +155,25 @@ event of there being a number of commonalities between modules.
 библиотеки и, автомотически, при создании библиотеки (ie. модуля),
 связывает вызов `init` с `document.ready`.
 
-    function library(module) {
-      $(function() {
-        if (module.init) {
-          module.init();
-        }
-      });
-      return module;
+{% highlight javascript %}
+function library(module) {
+  $(function() {
+    if (module.init) {
+      module.init();
     }
-    
-    var myLibrary = library(function() {
-       return {
-         init: function() {
-           /*implementation*/
-         }
-       };
-    }());
+  });
+  return module;
+}
+
+var myLibrary = library(function() {
+   return {
+     init: function() {
+       /*implementation*/
+     }
+   };
+}());
+{% endhighlight %}
+
 
 [3]: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
 [4]: http://groups.google.com/group/comp.lang.javascript/msg/9f58bd11bd67d937

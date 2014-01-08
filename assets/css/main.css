@@ -21,7 +21,7 @@ body {
   line-height: 1;
   color: #000;
   background: #fff;
-  background-color: #f8f8f8;
+  background-color: #f0f0f0;
   color: #404040;
 }
 hr {
@@ -190,4 +190,26 @@ a:visited.ignore-visited {
 }
 .page-header__title-link:hover {
   color: #06c;
+}
+code {
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+pre {
+  font-size: 0.8em;
+  padding: 18px 36px;
+  overflow: scroll;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+code {
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  padding: 4px 4px 2px;
+}
+pre > code {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
