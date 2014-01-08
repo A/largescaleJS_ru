@@ -198,7 +198,7 @@ code {
 }
 pre {
   font-size: 0.8em;
-  padding: 18px 36px;
+  padding: 18px 18px;
   overflow: scroll;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
