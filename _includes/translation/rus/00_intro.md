@@ -1,7 +1,4 @@
-Сегодня мы обсудим о набор паттернов, который поможет вам в создании 
-больших масштабируемых JavaScript приложений. Этот материал основан на моем
-одноименном докладе, впервые прочитанном на конференции «LondonJS», и
-вдохновленном [предшествующей ему работой][1] Николаса Закаса.
+{% include translation/rus/readme.md %}
 
 ### Кто я и почему я решил об этом написать?
 
@@ -27,5 +24,4 @@
 {:class="message"}
 
 
-[1]: http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/
 [2]: http://addyosmani.com/resources/essentialjsdesignpatterns/book/

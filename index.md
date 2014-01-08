@@ -4,7 +4,8 @@ title: "Паттерны для масштабируемых JavaScript прил
 subtitle: "Автор: <a href='http://twitter.com/addyosmani'>Addy Osmani</a>. Технический обзор: <a href='http://twitter.com/peolanha'>Andrée Hansson</a>"
 ---
 
-{% include intro.html %}
+{:class="intro"}
+{% include translation/rus/readme.md %}
 
 <h2>Оглавление</h2>
 <ul>
