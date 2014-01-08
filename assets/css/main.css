@@ -21,7 +21,7 @@ body {
   line-height: 1;
   color: #000;
   background: #fff;
-  background-color: #f0f0f0;
+  background: url("/assets/img/noise.png") #f4f4f4;
   color: #404040;
 }
 hr {
