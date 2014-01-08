@@ -107,7 +107,7 @@ dojo.setObject("store.basket.object", (function() {
 
 Лучшего результата можно добиться, используя `dojo.provide` и миксины.
 
-** YUI ** 
+**YUI** 
 
 
 Следующий код, по большей части, основан на примере реализации паттерна
@@ -144,7 +144,7 @@ YAHOO.store.basket = function () {
 {% endhighlight %}
 
 
-** jQuery ** 
+**jQuery** 
 
 There are a number of ways in which jQuery code unspecific to plugins can be
 wrapped inside the module pattern. Ben Cherry previously suggested an 
