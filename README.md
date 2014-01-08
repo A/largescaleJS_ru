@@ -10,7 +10,7 @@
     # Один раз установить зависимости
     bundle install
     # Запустить блог. Будет доступен на 4000-м порту localhost'а
-    bundle exec jekyll serve --watch
+    jekyll serve --watch
 
 
 ### Файлы перевода
@@ -30,7 +30,7 @@
     stylus -w -o assets/css/ ./_stylus/main.styl
 
     # Запуск jekyll
-    bundle exec jekyll serve --watch
+    jekyll serve --watch
 
 
 [1]: https://twitter.com/addyosmani/status/415195066895171584
