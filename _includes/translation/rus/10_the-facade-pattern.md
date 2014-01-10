@@ -1,72 +1,72 @@
-### The Facade Pattern 
+<!-- ### Паттерн «Фасад» -->
 
-Next, we're going to look at the facade pattern, a design pattern which plays a
-critical role in the architecture being defined today.
+Дальше я предлагаю посмотреть «Фасад», паттерн проектирования, который играет
+критическую роль в архитектуре, которую мы сегодня определяем.
 
-When you put up a facade, you're usually creating an outward appearance which
-conceals a different reality. The facade pattern provides a convenient**higher-
-level interface** to a larger body of code, hiding its true underlying
-complexity. Think of it as simplifying the API being presented to other 
-developers.
+Когда вы строите фасад, вы, как правило, поднимаете некоторую абстракцию,
+за которой находится иная реальность. Паттерн «фасад» обеспечивает удобный
+**интерфейс более высокого уровня** для больших блоков кода, скрывая за собой
+свою истинную сложность. Думайте об этом как об упрощающем API, который будет
+предоставляться другим разработчикам.
 
-Facades are a **structural pattern** which can often be seen in JavaScript
-libraries and frameworks where, although an implementation may support methods 
-with a wide range of behaviors, only a 'facade' or limited abstract of these 
-methods is presented to the client for use.
+Фасад — это **структурный паттерн**, который часто можно увидеть в JavaScript
+библиотеках и фреймворках, где, не смотря на то, что имплементация поддерживает
+методы с широким диапазоном поведений, только фасад или ограниченная абстракция 
+этих методов доступна для пользователя. 
 
-This allows us to interact with the facade rather than the subsystem behind the
-scenes.
+Это позволяет взаимодействовать с фасадом, а не с подсистемами, которые
+находятся за кадром.
 
-The reason the facade is of interest is because of its ability to hide
-implementation-specific details about a body of functionality contained in 
-individual modules. The implementation of a module can change without the 
-clients really even knowing about it.
+Причина, по которой нас интересует фасад — возможность скрыть тело реализации
+деталей конкретной функциональности, которая находится в отдельных модулях. 
+Таким образом можно изменять реализацию, не ставя в известность пользователей.
 
-By maintaining a consistent facade (simplified API), the worry about whether a
-module extensively uses dojo, jQuery, YUI, zepto or something else becomes 
-significantly less important. As long as the interaction layer doesn't change, 
-you retain the ability to switch out libraries (eg. jQuery for Dojo) at a later 
-point without affecting the rest of the system.
+Поддерживая крепкий фасад (упрощенное API), мы иможем не беспокоиться о том, что
+какой-то модуль плотно связан с dojo, jQuery, YUI, zepto или другой библиотекой.
+Это становится менее важным. Пока слой взаимодействия не изменяется, вы
+сохраняете возможность перейти с одной библиотеки на другую. Например, с jQuery
+на dojo. Становится возможным сделать это и на более позднем этапе, не затрагивая
+остальной системы.
 
-Below is a very basic example of a facade in action. As you can see, our module
-contains a number of methods which have been privately defined. A facade is then
-used to supply a much simpler API to accessing these methods:
+Ниже я написал очень простой пример фасада в действии. Как вы видите, наш
+модуль содержит некоторое количество приватных методов. Фасад здесь используется
+для того, чтобы реализовать более простой API для доступа к этим методам:
 
-    var module = (function() {
-        var _private = {
-            i:5,
-            get : function() {
-                console.log('current value:' + this.i);
-            },
-            set : function( val ) {
-                this.i = val;
-            },
-            run : function() {
-                console.log('running');
-            },
-            jump: function(){
-                console.log('jumping');
+{% highlight javascript %}
+var module = (function() {
+    var _private = {
+        i:5,
+        get : function() {
+            console.log('current value:' + this.i);
+        },
+        set : function( val ) {
+            this.i = val;
+        },
+        run : function() {
+            console.log('running');
+        },
+        jump: function(){
+            console.log('jumping');
+        }
+    };
+    return {
+        facade : function( args ) {
+            _private.set(args.val);
+            _private.get();
+            if ( args.run ) {
+                _private.run();
             }
-        };
-        return {
-            facade : function( args ) {
-                _private.set(args.val);
-                _private.get();
-                if ( args.run ) {
-                    _private.run();
-                }
-            }
-        }
-    }());
-    
-    
-    module.facade({run: true, val:10});
-    //outputs current value: 10, running
-    
-    
+        }
+    }
+}());
 
-and that's really it for the facade before we apply it to our architecture.
-Next, we'll be diving into the exciting mediator pattern. The core difference 
-between the facade pattern and the mediator is that the facade (a structural 
-pattern) only exposes existing functionality whilst the mediator (a behavioral 
-pattern) can add functionality.
+
+module.facade({run: true, val:10});
+//outputs current value: 10, running
+{% endhighlight %}
+
+Это и есть причина, по которой мы добавили фасад к нашей архитектуре.
+Теперь перейдем к паттерну «Медиатор». Принципиальное различие между паттерном
+«фасад» и «медиатор» заключается в том, что фасад (структурный паттерн)
+всего лишь передает существующую функциональность в медиатор, в то время как
+медиатор (поведенческий паттерн) может расширять функциональность.
