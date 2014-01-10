@@ -107,6 +107,10 @@ a:visited.ignore-visited {
   line-height: 1.5;
   position: relative;
 }
+.content img {
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
 .prevnext {
   margin: 2em 0;
   position: relative;
