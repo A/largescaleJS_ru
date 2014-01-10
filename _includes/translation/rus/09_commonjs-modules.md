@@ -1,83 +1,89 @@
-### CommonJS Modules
+### CommonJS Модули
 
-Over the last year or two, you may have heard about [CommonJS][5] - a volunteer
-working group which designs, prototypes and standardizes JavaScript APIs. To 
-date they've ratified standards for modules and packages.The CommonJS AMD 
-proposal specifies a simple API for declaring modules which can be used with 
-both synchronous and asynchronous script tag loading in the browser. Their 
-module pattern is relatively clean and I consider it a reliable stepping stone 
-to the module system proposed for ES Harmony (the next release of the JavaScript
-language
-).
 
-From a structure perspective, a CommonJS module is a reusable piece of
-JavaScript which exports specific objects made available to any dependent code. 
-This module format is becoming quite ubiquitous as a standard module format for 
-JS. There are plenty of great tutorials on implementing CommonJS modules, but at
-a high-level they basically contain two primary parts: an`exports` object that
-contains the objects a module wishes to make available to other modules and a
-`require` function that modules can use to import the exports of other modules. 
+Возможно, в последний год или два вы что-то слышали о [CommonJS][5] — волонтерской
+рабочей группе, которая проектирует, прототипирует и стандартизирует различные
+JavaScript API. На сегодняшний день они ратифицировали стандарты для модулей и
+пакетов(packages?). (мысль рвется) CommonJS AMD — это простой API для объявления
+модулей, поддерживающий как синхронную так и асинхронную загрузку в браузере
+с помощью тега `<script>`. Их паттерн «модуль» реализован достаточно просто, и 
+я нахожу его хорошей ступенью к модульной системе, предложенной в ES Harmony
+(следующем релизе языка JavaScript).
 
-    /*
-    Example of achieving compatibility with AMD and standard CommonJS by putting
-    boilerplate around the standard CommonJS module format:
-    */
-    
-    (function(define){
-    define(function(require,exports){
-    // module contents
-     var dep1 = require("dep1");
-     exports.someExportedFunction = function(){...};
-     //...
-    });
-    })(typeof define=="function"?define:function(factory){factory(require,exports)});
-    
+В плане структуры, CommonJS модуль представляет собой готовый к переиспользованию
+фрагмент JavaScript кода, который экспортирует специальные объекты, которые
+использует зависящий от этих модулей код. CommonJS становится все более
+распространен, как стандартный формат JavaScript модулей. Существует большое
+количество хороших уроков по реализации CommonJS модулей, но на высоком уровне
+они содержат, в основном, две главных части: объект `exports`, содержащий объект,
+который модуль хочет сделать доступной для других модулей, и `require`, функцию,
+которая используется модулями для импорта объекта `exports` из других модулей.
 
-There are a number of great JavaScript libraries for handling module loading in
-the**CommonJS** module format, but my personal preference is RequireJS. A
-complete tutorial on RequireJS is outside the scope of this tutorial, but I can 
-recommend reading James Burke's ScriptJunkie post on it[here][6]. I know a
-number of people that also like Yabble.
+{% highlight javascript %}
+/*
+Пример обеспечения совместимости между AMD и стандартом CommonJS с помощью
+создания обертки над форматом CommonJS:
+*/
 
-Out of the box, RequireJS provides methods for easing how we create static
-modules with wrappers and it's extremely easy to craft modules with support for 
-asynchronous loading. It can easily load modules and their dependencies this way
-and execute the body of the module once available.
+(function(define){
+define(function(require,exports){
+// module contents
+ var dep1 = require("dep1");
+ exports.someExportedFunction = function(){...};
+ //...
+});
+})(typeof define=="function"?define:function(factory){factory(require,exports)});
+{% endhighlight %}
 
-There are some developers that however claim CommonJS modules aren't suitable
-enough for the browser. The reason cited is that they can't be loaded via a 
-script tag without some level of server-side assistance. We can imagine having a
-library for encoding images as ASCII art which might export a`encodeToASCII`
-function. A module from this could resemble:
+Есть много хороших JavaScript библиотек, для загрузки модулей в формате
+**CommonJS**, но моим личным предпочтением является RequireJS. Полный учебник
+по RequireJS выходит за рамки этого руководства, но я могу порекомендовать вам
+почитать [пост James Bruke «ScriptJunkie»][6]. I know a number of people that
+also like Yabble.
 
+Из коробки, RequireJS обеспечивает методы для облегчения создания статичных
+модулей с обертками, и, действительно, становится очень легко создавать модули
+с поддержкой ассинхронной загрузки. It can easily load modules and their
+dependencies this way and execute the body of the module once available.
+
+Некоторые разработчики утверждают, что CommonJS модули не достаточно удобны
+для использования в брузере, из-за того, что они не могут быть загруженны 
+с помощью тега `script` без определенной помощи со стороны сервера. Представим
+себе что есть некая библиотека для кодирования изображений в виде ASCII арта,
+которая экспортирует функцию `encodeToASCII`. Модуль будет выглядеть как-то так:
+
+{% highlight javascript %}
+var encodeToASCII = require("encoder").encodeToASCII;
+exports.encodeSomeSource = function(){
+    //process then call encodeToASCII
+}
+{% endhighlight %}
+
+Такой код не будет работать с тегом `<script>` без специальной обертки над
+областью видимости переменных. Я имею в виду наш метод `encodeToASCII`, который
+ссылается на несуществующие в контексте `window` методы `require` и `exports`.
+В такой ситуации нам пришлось бы создавать `require` и `exports` отдельно
+для каждого модуля. Клиентские библиотеки, которые с помощью серверной стороны
+загружают скрипт через XHR-запрос, а затем выполняют `eval()`, могут легко
+справится с этой проблемой. (???)
+
+Используя RequireJS, перепишем модуль:
+
+{% highlight javascript %}
+define(function(require, exports, module) {
     var encodeToASCII = require("encoder").encodeToASCII;
     exports.encodeSomeSource = function(){
-        //process then call encodeToASCII
+            // process then call encodeToASCII
     }
-    
+});
+{% endhighlight %}
 
-This type of scenario wouldn't work with a script tag because the scope isn't
-wrapped, meaning our`encodeToASCII` method would be attached to the `window`
-`require` wouldn't be as such defined and exports would need to be created for
-each module separately. A client-side library together with server-side 
-assistance or a library loading the script with an XHR request using`eval()`
-could however handle this easily.
-
-Using RequireJS, the module from earlier could be rewritten as follows:
-
-    define(function(require, exports, module) {
-        var encodeToASCII = require("encoder").encodeToASCII;
-        exports.encodeSomeSource = function(){
-                //process then call encodeToASCII
-        }
-    });
-    
-
-For developers who may not rely on just using static JavaScript for their
-projects, CommonJS modules are an excellent path to go down, but do spend some 
-time reading up on it. I've really only covered the tip of the ice berg but both
-the CommonJS wiki and Sitepen have a number of resources if you wish to read 
-further.
+Для разработчиков, которые хотят пойти дальше простого использования JavaScript
+в своих проектах, CommonJS модули — прекрасная возможность начать движение в эту
+сторону, но нужно потратить немного времени для того чтобы разобраться с этим
+поближе. На самом деле, все, что я рассказал — только верхушка айсберга, к счастью
+и CommonJS wiki и SitePen содержат много материалов, которые вам помогут
+вам лучше разобраться в CommonJS модулях.
 
 
 [5]: http://commonjs.org
