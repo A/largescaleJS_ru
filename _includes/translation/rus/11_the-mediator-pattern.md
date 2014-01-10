@@ -20,92 +20,94 @@
 
 Какие еще преимущества существуют у «медиатора»? Ну например, медиатор позволяет
 каждому модулю действовать абсолютно независимо, таким образом модули выходят
-очень гибкими. Если вы раньше использовали паттерн «Обсервер» (читатель/подписчик),
+очень гибкими. Если вы раньше использовали паттерн «Обсервер» (читатель/издатель),
 для реализации системы доставки событий между модулями в вашей системе, то 
 достаточно легко разберетесь с медиатором.
 
-Let's take a look at a high level view of how modules might interact with a
-mediator:
+Давайте посмотрим на модель взаимодействия модулей и медиатора:
 
 ![][7]
 
-Consider modules as publishers and the mediator as both a publisher and
-subscriber. Module 1 broadcasts an event notifying the mediator something needs 
-to done. The mediator captures this message and 'starts' the modules needed to 
-complete this task Module 2 performs the task that Module 1 requires and 
-broadcasts a completion event back to the mediator. In the mean time, Module 3 
-has also been started by the mediator and is logging results of any 
-notifications passed back from the mediator.
+Мы можем смотреть на модули как на «издателя» и «медиатор», либо как на «издателя»
+и «читателя». Модуль1 отправляет событие, сообщающее медиатору о том, что что-то
+нужно сделать. Медиатор получает событие и сообщает модулям о том, что нужно 
+выполнять действия необходимые для завершения полученной задачи. Модуль2
+выполняет задачу, которую требовал модуль 1, и отправляет сообщение об этом
+медиатору. Во время этого, модуль3 тоже запускается медиатором для логгироваия
+всех сообщений, передаваемых обратно от медиатора.
 
-Notice how at no point do any of the modules** directly communicate** with one
-another. If Module 3 in the chain were to simply fail or stop functioning, the 
-mediator could hypothetically 'pause' the tasks on the other modules, stop and 
-restart Module 3 and then continue working with little to no impact on the 
-system. This level of decoupling is one of the main strengths the pattern has to
-offer.
+Обратите внимание, что здесь нет места прямому взаимодействию между модулями.
+Если в модуле3 случится ошибка или он просто перестанет работать, то медатор,
+гипотетически, может приостановить выполнение задач в других модулях,
+перезапустить модуль3 и затем продолжить работу практически без воздействия
+на систему. Этот уровень уменьшения связанности является одним из наиболее
+сильных преимуществ паттерна медиатор, который я вам предлагаю использовать.
 
-To review, the advantages of the mediator are that:
+Посмотрим на преимущества медиатора:
 
-It decouples modules by introducing an intermediary as a central point of
-control.It allows modules to broadcast or listen for messages without being 
-concerned with the rest of the system. Messages can be handled by any number of 
-modules at once.
+Уменьшает связывание модулей путем добавления посредника в роли центрольного
+элемента управления. Это позволяет модулям отправлять и слушать сообщения
+не затрагивая остальной части системы. Сообщения могут быть обработаны любым
+количеством модулей сразу. 
 
-It is typically significantly more easy to add or remove features to systems
-which are loosely coupled like this.
+Обычно это позволяет гораздо проще добавлять или удалять функциональность
+в системах со слабым связыванием кода.
 
-And its disadvantages: 
+И недостатки:
 
-By adding a mediator between modules, they must always communicate indirectly.
-This can cause a very minor performance drop - because of the nature of loose 
-coupling, its difficult to establish how a system might react by only looking at
-the broadcasts. At the end of the day, tight coupling causes all kinds of 
-headaches and this is one solution.
+По причине добавления медиатора, модулям придется всегда взаимодействовать
+не напрямую. Также использование медиатора приводит к совсем небольшому падению
+производительности из-за слабой связанности. Достаточно трудно установить
+поведение системы исключительно на основе трансляции событий. В конце дня, 
+системы с тесной связанностью могут вызывать различные боли, и уменьшение
+связанности является одним из решений этих проблем.
 
-** Example:** This is a possible implementation of the mediator pattern based
-on previous work by[@rpflorence][8]
 
-    var mediator = (function(){
-        var subscribe = function(channel, fn){
-            if (!mediator.channels[channel]) mediator.channels[channel] = [];
-            mediator.channels[channel].push({ context: this, callback: fn });
-            return this;
-        },
-    
-        publish = function(channel){
-            if (!mediator.channels[channel]) return false;
-            var args = Array.prototype.slice.call(arguments, 1);
-            for (var i = 0, l = mediator.channels[channel].length; i 
-    
-    
-    
-**Example:** Here are two sample uses of the implementation from above. It's effectively managed publish/subscribe:
-    
-    
-    
-    //Pub/sub on a centralized mediator
-    
-    mediator.name = "tim";
-    mediator.subscribe('nameChange', function(arg){
-            console.log(this.name);
-            this.name = arg;
-            console.log(this.name);
-    });
-    
-    mediator.publish('nameChange', 'david'); //tim, david
-    
-    
-    //Pub/sub via third party mediator
-    
-    var obj = { name: 'sam' };
-    mediator.installTo(obj);
-    obj.subscribe('nameChange', function(arg){
-            console.log(this.name);
-            this.name = arg;
-            console.log(this.name);
-    });
-    
-    obj.publish('nameChange', 'john'); //sam, john
+**Пример:** возможная имплементация паттерна «медиатор» на основе работы [@rpflorence][8]
+
+{% highlight javascript %}
+var mediator = (function(){
+    var subscribe = function(channel, fn){
+        if (!mediator.channels[channel]) mediator.channels[channel] = [];
+        mediator.channels[channel].push({ context: this, callback: fn });
+        return this;
+    },
+
+    publish = function(channel){
+        if (!mediator.channels[channel]) return false;
+        var args = Array.prototype.slice.call(arguments, 1);
+        for (var i = 0, l = mediator.channels[channel].length; i 
+{% endhighlight %}
+
+
+**Пример:** А это два примера использования реализации, которую мы определили
+выше. Это эффективное управление публикацией и подпиской:
+
+{% highlight javascript %}
+//Pub/sub on a centralized mediator
+
+mediator.name = "tim";
+mediator.subscribe('nameChange', function(arg){
+    console.log(this.name);
+    this.name = arg;
+    console.log(this.name);
+});
+
+mediator.publish('nameChange', 'david'); //tim, david
+
+
+//Pub/sub via third party mediator
+
+var obj = { name: 'sam' };
+mediator.installTo(obj);
+obj.subscribe('nameChange', function(arg){
+    console.log(this.name);
+    this.name = arg;
+    console.log(this.name);
+});
+
+obj.publish('nameChange', 'john'); //sam, john
+{% endhighlight %}
 
 
 [7]: /assets/img/chart4a.jpg
