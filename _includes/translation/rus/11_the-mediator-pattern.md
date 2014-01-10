@@ -1,28 +1,28 @@
-### The Mediator Pattern
+<!-- ### Паттерн «Медиатор» -->
 
- 
-The mediator pattern is best introduced with a simple analogy - think of your
-typical airport traffic control. The tower handles what planes can take off and 
-land because all communications are done from the planes to the control tower, 
-rather than from plane-to-plane. A centralized controller is key to the success 
-of this system and that's really what a mediator is.
+Объяснить, что из себя представляет паттерн «Медиатор» можно на примере простой
+аналогии — представьте себе как аэропорт обеспечивает контроль траффика. Башня
+принимает решение о том, какие самолеты могут приземлиться, потому что все
+взаимодействие происходит от самолетов к контрольной башне, вместо того, чтобы
+происходить напрямую между самолетами. Централизованный котроллер — это ключ к
+успеху этой системы, и это и есть паттерн «медиатор».
 
-Mediators are used when the communication between modules may be complex, but
-is still**well defined**. If it appears a system may have too many
-relationships between modules in your code, it may be time to have a central 
-point of control, which is where the pattern fits in.
+Медиатор используется когда взаимодействия между модулями могут быть сложными,
+но все еще **хорошо определенными**. Если оказывается, что система может может
+иметь слишком много связай между модулями в коде, это может быть моментом, когда
+следует создать центральную точку контроля. Медиатор идеально подходит для этой
+задачи.
 
-In real-world terms, a mediator** encapsulates** how disparate modules **
-interact** with each other by acting as an intermediary. The pattern also
-promotes loose coupling by preventing objects from referring to each other 
-explicitly - in our system, this helps to solve our module inter-dependency 
-issues.
+В реальном мире, термин «медиатор» **инкапсулирует взаимодействие** различных
+модулей друг с другом, выступая в качестве посредника. Паттерн также способствует
+ослаблению связей,  предотвращая взаимодействие модулей друг с другом. В нашей
+системе это помогает решить проблемы с зависимостями между модулями.
 
-What other advantages does it have to offer? Well, mediators allow for actions
-of each module to vary independently, so it’s extremely flexible. If you've 
-previously used the Observer (Pub/Sub) pattern to implement an event broadcast 
-system between the modules in your system, you'll find mediators relatively easy
-to understand.
+Какие еще преимущества существуют у «медиатора»? Ну например, медиатор позволяет
+каждому модулю действовать абсолютно независимо, таким образом модули выходят
+очень гибкими. Если вы раньше использовали паттерн «Обсервер» (читатель/подписчик),
+для реализации системы доставки событий между модулями в вашей системе, то 
+достаточно легко разберетесь с медиатором.
 
 Let's take a look at a high level view of how modules might interact with a
 mediator:
@@ -108,5 +108,5 @@ on previous work by[@rpflorence][8]
     obj.publish('nameChange', 'john'); //sam, john
 
 
-[7]: img/chart4a.jpg
+[7]: /assets/img/chart4a.jpg
 [8]: https://github.com/rpflorence
