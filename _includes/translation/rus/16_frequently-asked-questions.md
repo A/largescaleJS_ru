@@ -22,12 +22,13 @@
 модули независимыми, но стоит понимать, что, в обсуждаемой нами архитектуре,
 идеальные модули не должны иметь зависимостей.
 
-You'll find that when this is the case it can sometimes be more easy to get a
-complete module from one project working in another with little extra effort. I 
-should make it clear that I fully agree that it can sometimes be significantly 
-more sensible for modules to extend or use other modules for part of their 
-functionality, however bear in mind that this can in some cases increase the 
-effort required to make such modules 'liftable' for other projects.
+Вы заметите, что иногда при таком подходе становится гораздо легче взять
+законченный модуль из одного проекта и перенести его в другой проект с небольшими
+дополнительными усилиями. Я должен прояснить, что я полностью согласен с тем, что
+иногда намного лучше когда модули вместо определенной части своей функциональности
+просто используют другие модули. Как бы то ни было, держите в голове то, что
+такие модули, в некоторых случаях, могут потребовать гораздо больше усилий для
+переноса в другой проект.
 
 ### Q: I'd like to start using this architecture today. Is there any boilerplate code around I can work from?
 
