@@ -1,40 +1,40 @@
-### **Applying the Mediator: The Application Core**
+<!-- ### Использование медиатора: ядро приложения -->
 
+Медиатор играет роль ядра приложения. Мы коротко пройлемся по некоторым его
+зонам ответственности, но сначала давайте разберемся, что он из себя представляет
+в целом.
 
-The mediator plays the role of the application core. We've briefly touched on
-some of its responsibilities but lets clarify what they are in full. 
+Основная задача ядра — управлять **жизненным циклом** модулей. Когда ядро 
+получает **интересное сообщение** от моулей, оно должно определить, как
+приложение должно на это отреагировать, таким образом ядро определяет когда
+определенный модуль или набор модулей будет **запущен** или **остановлен**.
 
+Однажды запущенный модуль, в идеальной ситуации, должен функционировать
+самостоятельно. В задачи ядра не входит принятие решений как реагировать,
+например, на событие `DOM ready`, в нашей архитектуе у модулей есть достаточно
+возможностей для того, чтобы принимать такие решения самостоятельно.
 
+Возможно, у вас вызовет удивление то обстоятельство, что модулям может
+потребоваться остановка. Такое может произойти в том случае, если модуль вышел
+из строя, либо если в работе модуля происходят существенные ошибки. Решение
+об остановке модуля может помочь предотвратить некорректную работу его методов.
+Последующий перезапуск таких модулей должен помочь решить возникшие проблемы.
+Цель здесь в минимизации негативных последствий для пользователя нашего приложения.
 
-The core's primary job is to manage the module **lifecycle. **When the core
-detects an** interesting message** it needs to decide how the application
-should react - this effectively means deciding whether a module or set of
-modules needs to be **started** or** stopped**. 
+В дополнение, ядро должно быть в состоянии **добавлять или удалять** модули
+не ломая ничего. Типичный пример — определенный набор функций может быть
+недоступен на начальном этапе загрузки страницы, но эти функции могут быть
+загруженны динамически, на основе определенных действий со стороны пользователя.
+Возвращаясь к нашему примеру с GMail, google может по умолчанию держать чат
+в свернутом стостоянии и загружать соответствующий ему модуль динамически,
+только если пользователь проявит интерес к использованию этой части приложения.
+С точки зрения оптимизации производительности, это должно дать заметный эффект.
 
-Once a module has been started, it should ideally execute **automatically**.
-It's not the core's task to decide whether this should be when the DOM is ready
-and there's enough scope in the architecture for modules to make such decisions
-on their own. 
-
-You may be wondering in what circumstance a module might need to be 'stopped'
-- if the application detects that a particular module has failed or is
-experiencing significant errors, a decision can be made to prevent methods in
-that module from executing further  so that it may be restarted. The goal here
-is to assist in reducing disruption to the user experience.
-
-In addition, the core should enable **adding or removing** modules without
-breaking anything. A typical example of where this may be the case is
-functionality which may not be available on initial page load, but is
-dynamically loaded based on expressed user-intent eg. going back to our GMail
-example, Google could keep the chat widget collapsed by default and only
-dynamically load in the chat module(s) when a user expresses an interest in
-using that part of the application. From a performance optimization perspective,
-this may make sense.
-
-Error management will also be handled by the application core. In addition to
-modules broadcasting messages of interest they will also broadcast any errors
-experienced which the core can then react to accordingly (eg. stopping modules,
-restarting them etc).It's important that as part of a decoupled architecture
-there to be enough scope for the introduction of new or better ways of handling
-or displaying errors to the end user without manually having to change each
-module. Using publish/subscribe through a mediator allows us to achieve this.
+Обслуживание ошибок должно производиться также ядром приложения. В добавок
+к сообщению об интересных событиях модули также должны сообщать и о любых ошибках
+которые произошли в их работе. Ядро должно соответствующим образом реагировать
+на эти ошибки (к примеру, останавливать модули, перезапускать их и тд). Это
+важно как часть слабо связанной архитектуры, позволяющей реализовать новый
+или лучший подход к реализации уведомления пользователя нашего приложения 
+об ошибках без ручного изменения в каждом модуле. Используя механизм для 
+публикации событий и подписки на них в медиаторе мы сможем достичь этого.
