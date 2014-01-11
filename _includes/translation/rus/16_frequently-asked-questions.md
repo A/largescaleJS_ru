@@ -30,9 +30,23 @@
 такие модули, в некоторых случаях, могут потребовать гораздо больше усилий для
 переноса в другой проект.
 
-### Q: I'd like to start using this architecture today. Is there any boilerplate code around I can work from?
+### Я хочу сегодня же начать использовать эту архитектуру. Есть ли какой-то шаблон от которого я бы мог оттолкнуться?
 
-A: I plan on releasing a free boilerplate pack for this post when time permits
+Я планирую написать бесплатный шаблон проекта для этой книги, когда появится
+время, но сейчас, наверное, лучший выбор — [«Написание модульного JavaScript»][14] — 
+платное учебное пособие написанное Эндрю Бэджис (разаблачу себя: деньги от этой
+реферальной ссылки, как и любые другие, полученные от этой книги в пересмотр
+материала перед тем, как я порекоммендую его другим)(???). Пособие Андре вклбчает
+в себя скринкаст и код. Оно охватывает большую часть идей, которые мы обсуждали
+в книге, но в нем используется вместо названия фасада «песочница», как у Николоса 
+Закас. Здесь есть обсуждение о том, что работа с DOM-библиотеками в идеале должа
+быть реализованна посредством абстстракции, как я и отвечал в предыдущем вопросе.
+Эндрю делает ставку на некоторые интересные паттерны, обобщающие работу с 
+селекторами DOM, таким образом, в крайнем случае замена библиотеки может быть
+выполненна в нескольких коротких строках. Я не говорю, что это правильный или
+лучший подход, но я поступаю.
+
+<!-- A: I plan on releasing a free boilerplate pack for this post when time permits
 , but at the moment, your best bet is probably the
 '[Writing Modular JavaScript][14]' premium tutorial by Andrew Burgees (for
 complete disclosure, this is a referral link as any credits received are re-
@@ -44,15 +58,20 @@ implemented in such an architecture - similar to my answer for the second
 question, Andrew opts for some interesting patterns on generalizing query 
 selectors so that at most, switching libraries is a change that can be made in a
 few short lines. I'm not saying this is the right or best way to go about this, 
-but it's an approach I personally also use.
+but it's an approach I personally also use. -->
 
-### Q: If the modules need to directly communicate with the core, is this possible?
+### Возможно ли модулям взаимодействовать напрямую с ядром, если это необходимо?
 
-A: As Zakas has previously hinted, there's technically no reason why modules
+Как заметил раньше Николас Закас, технически, нет никаких причин, мешающих
+модулям напрямую обращаться к ядру, это лучше чем ничего. Если вы намерены
+строго следовать этой архитектуре, выдолжны следовать ее правилам, либо
+правилам более простой архитектуры, которая была описана в первом вопросе.
+
+<!-- A: As Zakas has previously hinted, there's technically no reason why modules
 shouldn't be able to access the core but this is more of a best practice than 
 anything. If you want to strictly stick to this architecture you'll need to 
 follow the rules defined or opt for a looser architecture as per the answer to 
-the first question.
+the first question. -->
 
 
 [14]: http://bit.ly/orGVOL
