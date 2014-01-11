@@ -1,43 +1,43 @@
-### **Tying It All Together**
+<!-- ### Собираем всех вместе -->
 
+*   **Модули** содержат специфичные части функциональности вашего приложения.
+    Они публикуют уведомнелия, информирующие приложения о том, что случилось
+    что-то интересное. Это главная забота для них. Как я поясню в FAQ, модули
+    могут зависеть от различных вспомогательных методов для работы с DOM, но
+    бы было идеальным отсутствие любых зависимостей от других модулей
+    в системе. Модули не должны иметь отношение к тому:
 
-*   **Modules** contain specific pieces of functionality for your application.
-    They publish notifications informing the application whenever something 
-    interesting happens - this is their primary concern. As I'll cover in the FAQs, 
-    modules can depend on DOM utility methods, but ideally shouldn't depend on any 
-    other modules in the system. They should not be concerned with:
-   
-    
-    *   what objects or modules are subscribing to the messages they publish
-    *   where these objects are based (whether this is on the client or server
-        )
-    *   how many objects subscribe to notifications
+    *   какие объекты или модули подписаны на сообщения которые они публикуют
+    *   где находятся эти объекты (на клиенте или на сервере)
+    *   какое количество объектов подписано на уведомления
 
 **![][9]**
 
-*   **The Facade** abstracts the core to avoid modules touching it directly. It
-    subscribes to interesting events (from modules) and says 'Great! What happened? 
-    Give me the details!'. It also handles module security by checking to ensure the
-    module broadcasting an event has the necessary permissions to pass such events 
-    that can be accepted.
+*   **Фасад** — абстракция ядра защищающая его от прямого взаимодействия
+    с модулями. Он подписывается на интересные сообщения от модулей, и говорит:
+    «Отлично! Что случилось! Дай мне больше подробностей!». Так же фасад
+    обеспечивает безопасность модулей проверяя, действительно ли модуль,
+    отправляющий сообщения, имеет необходимые права для того, чтобы сообщения
+    были соответствующим образом обработанны ядром.
 
 **![][10]**
 
-*   **The Mediator (Application Core)** acts as a 'Pub/Sub' manager using the
-    mediator pattern. It's responsible for module management and starts/stops 
-    modules as needed. This is of particular use for dynamic dependency loading and 
-    ensuring modules which fail can be centrally restarted as needed.
-   
+*   **Медиатор (ядро приложения)** выстопает в роли управляющего публикациями
+    событий и подписками на них. Он отвечает за управление запуском и остановкой
+    модулей при необходимости. Здесь используется частичная динамическая загрузка
+    зависимостей, и гарантия того, что упавшие модули могут быть централизованно
+    перезапущены по необходимости.
+
 **![][11]**
 
-The result of this architecture is that modules (in most cases) are
-theoretically no longer dependent on other modules. They can be easily tested 
-and maintained on their own and because of the level of decoupling applied, 
-modules can be picked up and dropped into a new page for use in another project 
-without significant additional effort. They can also be dynamically added or 
-removed without the application falling over.
+Итог этой архитектуры в том, что модули (в большинстве случаев), теоретически
+больше не зависят от других модулей. Они могут быть легко тестируемы и легко
+поддерживаемы в рамках своего кода. Кроме того, благодаря изкому уровню
+связанности кода, такие модули можно взять и поместить на новую страницу для
+использования в другом проекте, без дополнительных усилий. Так же эти модули
+модут быть загруженны или удалены динамически в процессе работы приложения.
 
 
-[9]: img/chart1a.gif
-[10]: img/chart2a.gif
-[11]: img/chart3a.gif
+[9]: /assets/img/chart1a.gif
+[10]: /assets/img/chart2a.gif
+[11]: /assets/img/chart3a.gif
