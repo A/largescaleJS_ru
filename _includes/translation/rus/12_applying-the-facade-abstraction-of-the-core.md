@@ -1,36 +1,32 @@
-### **Applying The Facade: Abstraction Of The Core**
+<!-- ### Использование фасада: абстракция ядра -->
 
-In the architecture suggested:
+В нашей архитектуре:
 
-A facade serves as an **abstraction** of the application core which sits between
-the mediator and our modules - it should ideally be the **only** other part of
-the system modules are aware of. 
+Фасад выполняет роль **абстракции** ядра приложения, которая находится между
+медиатором и нашими модулями. Фасад, в идеальной ситуации, модули должны
+взаимодействовать **только** с фасадом, и не должны ничего знать об остальной
+части системы.
 
+В ответственность фасада входит обеспечение **консистентного интерфейса** для
+модулей, который доступен в любой момент. Это очень сильно напоминает роль
+**контроллера песочницы**, в отличной архитектуре, которую впервые предложил
+Николас Закас.
 
+Компоненты взаимодействуют с медиатором посредством фасада, по этому он должен
+быть **надежен**. Говоря «взаимодействуют», я должен уточнить, что фасад это
+абстракция медиатора, которая слушает сообщения исходящие от модулей, и
+передает их обратно медиатору. (???)
 
+В дополнение к предоставлению интерфейса для модулей, фасад так же выступает
+как страж безопасности, определяя с какими частями приложения может
+взаимодейстовать модуль. Компоненты могут вызывать только **свои собственные**
+методы, и не долдны иметь доступ любым к интерфейсам, без специального разрешения.
+Например, модуль может отправить сообщение `dataValidationCompletedWriteToDB`.
+Идея проверки безопасности заключается в том, чтобы проверить, действительно ли
+этот модуль имеет права на запись в базу данных. Таким образом, мы пытаемся
+предотвратить проблемы с модулями, которые пытаются делать что-то, что они
+делать не должны. 
 
-The responsibilities of the abstraction include ensuring a **consistent
-interface** to these modules is available at all times. This closely resembles
-the role of the **sandbox controller** in the excellent architecture first
-suggested by Nicholas Zakas.
-
-
-Components are going to communicate with the mediator through the facade so it
-needs to be **dependable**. When I say 'communicate', I should clarify that as
-the facade is an abstraction of the mediator which will be listening out for
-broadcasts from modules that will be relayed back to the mediator.
-
-
-In addition to providing an interface to modules, the facade also acts as
-a security guard, determining which parts of the application a module may
-access. Components only call **their own** methods and shouldn't be able to
-interface with anything they don't have permission to. For example, a module
-may broadcast dataValidationCompletedWriteToDB. The idea of a security check
-here is to ensure that the module has permissions to request database-write
-access. What we ideally want to avoid are issues with modules accidentally
-trying to do something they shouldn't be.
-
-
-To review in short, the mediator remains a type of pub/sub manager but is only
-passed interesting messages once they've cleared permission checks by the
-facade.
+Подведем итоги: медиатор представляет из себя вариацию основанную на паттерне 
+«подписчик/издатель», но он получает только интересующие нас сообщения, которые
+проходят проверку на соответсвующие им разрешения в фасаде.
