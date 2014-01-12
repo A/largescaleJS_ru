@@ -16,18 +16,16 @@ title : Atom Feed
   </author>
 
   {% for post in site.posts %}
-    {% if post.published %}
-      <entry>
-        <title>{{ post.title }}</title>
-        <updated>{{ post.date | date_to_xmlschema }}</updated>
-        {% if post.extlink %}
-          <link href="{{ post.external_link }}"/>
-        {% else %}
-          <id>{{ site.production_url }}{{ post.id }}</id>
-          <link href="{{ site.production_url }}{{ post.url }}"/>
-          <content type="html">{{ post.content | xml_escape }}</content>
-        {% endif %}
-      </entry>
-    {% endif %}
+    <entry>
+      <title>{{ post.title }}</title>
+      <updated>{{ post.date | date_to_xmlschema }}</updated>
+      {% if post.extlink %}
+        <link href="{{ post.external_link }}"/>
+      {% else %}
+        <id>{{ site.production_url }}{{ post.id }}</id>
+        <link href="{{ site.production_url }}{{ post.url }}"/>
+        <content type="html">{{ post.content | xml_escape }}</content>
+      {% endif %}
+    </entry>
   {% endfor %}
 </feed>
