@@ -159,11 +159,10 @@ a:visited.ignore-visited {
   position: absolute;
   left: 100%;
   width: 240px;
-  margin-left: 2em;
+  margin-left: 1.5em;
   padding: 1em;
   font-size: 14px;
-  background-color: #f0e9b4;
-  border: 1px solid #ccc699;
+  background-color: #fff;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15);
 }
