@@ -183,8 +183,19 @@ a:visited.ignore-visited {
   color: #404040;
 }
 .page-header__rss-link:hover {
-  color: #06c;
+  color: #404040;
   text-decoration: none;
+}
+.page-header__twitter-link {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 2em;
+  background: url("/assets/img/twitter.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 .page-header__title-link {
   color: #404040;
