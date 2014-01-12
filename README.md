@@ -12,6 +12,8 @@
     # Запустить блог. Будет доступен на 4000-м порту localhost'а
     jekyll serve --watch --drafts
 
+Для просмотра черновиков используйте ключ `--drafts`, если же черновики
+не нужны — просто пропустите этот ключ.
 
 ### Файлы перевода
 
@@ -30,7 +32,7 @@
     stylus -w -o assets/css/ ./_stylus/main.styl
 
     # Запуск jekyll
-    jekyll serve --watch
+    jekyll serve --watch --drafts
 
 
 [1]: https://twitter.com/addyosmani/status/415195066895171584
