@@ -80,6 +80,7 @@ ol {
   margin: 1em 0;
 }
 a {
+  display: inline-block;
   color: #06c;
   text-decoration: none;
 }
