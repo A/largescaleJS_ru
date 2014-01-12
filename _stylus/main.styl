@@ -5,7 +5,7 @@ iconic-stroke('../iconic/')
  * Variables
  */
 shadow__tiny = 0 1px 1px rgba(0,0,0,.15)
-shadow__pressed_effect = 0 1px 0 #FFF
+shadow__pressed_effect = 0 1px 0 rgba(255,255,255, .5)
 font__base = Georgia, 'Times New Roman', serif
 font__size = 18px
 font__size_small = 14px
@@ -27,10 +27,12 @@ html
   font-family font__base
   font-size font__size
 
+
 body
   reset-body()
   background img__noise color__bg
   color color__text
+  text-shadow shadow__pressed_effect
 
 hr
   display: block
@@ -47,7 +49,6 @@ h4
 h5
   reset-font()
   reset-box-model()
-  text-shadow shadow__pressed_effect
   margin-bottom .5em
   small
     font-size .6em
@@ -132,7 +133,7 @@ a
 .message
   padding .5em 1em
   box-shadow shadow__tiny
-  background-color color__blue
+  background img__noise color__blue
   border color__blue_dark
   &.info
     background-color color__yellow
@@ -155,7 +156,7 @@ a
   absolute right 0
   font-size 1.4em
   color color__text
-  text-shadow shadow__pressed_effect
+  text-shadow none
   &:visited
    color color__text
   &:hover
