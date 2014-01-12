@@ -174,6 +174,17 @@ var myLibrary = library(function() {
 }());
 {% endhighlight %}
 
+{:class="message"}
+**Ссылки по теме:**  
+[Ben Cherry - The Module Pattern In-Depth][5]  
+[John Hann - The Future Is Modules, Not Frameworks][6]  
+[Nathan Smith - A Module pattern aliased window and document gist][7]  
+[David Litmark - An Introduction To The Revealing Module Pattern][8]  
+
 
 [3]: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
 [4]: http://groups.google.com/group/comp.lang.javascript/msg/9f58bd11bd67d937
+[5]: http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
+[6]: http://lanyrd.com/2011/jsconf/sfgdk/
+[7]: https://gist.github.com/274388
+[8]: http://blog.davidlitmark.com/post/6009004931/an-introduction-to-the-revealing-module-pattern

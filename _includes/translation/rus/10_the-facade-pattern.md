@@ -70,3 +70,9 @@ module.facade({run: true, val:10});
 «фасад» и «медиатор» заключается в том, что фасад (структурный паттерн)
 всего лишь передает существующую функциональность в медиатор, в то время как
 медиатор (поведенческий паттерн) может расширять функциональность.
+
+{:class="message"}
+**Ссылки по теме:**  
+[Dustin Diaz, Ross Harmes - Pro JavaScript Design Patterns (Chapter 10, available to read on Google Books)][1]  
+
+[1]: http://books.google.co.uk/books?id=za3vlnlWxb0C&lpg=PA141&ots=MD5BLTsSzH&dq=javascript%20facade%20pattern&pg=PA141#v=onepage&q=javascript facade pattern&f=false

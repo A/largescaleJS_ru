@@ -1,5 +1,6 @@
 <!-- ### Давайте обсудим вашу существующую архитектуру -->
 
+{:.message}
 Если вы работаете над большим JavaScript приложением, не забывайте уделять 
 **достаточно времени** на планирование базовой архитектуры, к которой очень
 чувствительны подобного рода приложения. Большие приложения обычно представляют
@@ -28,12 +29,13 @@
 *   libraries/toolkits
 *   an application core.
 
+{:class="message"}
 **Ссылки по теме:**  
 [Rebecca Murphey - Structuring JavaScript Applications][1]  
 [Peter Michaux - MVC Architecture For JavaScript Applications][2]  
 [StackOverflow - A discussion on modern MVC frameworks][3]  
 [Doug Neiner - Stateful Plugins and the Widget Factory][4]  
-{:class="message info"}
+
 
 Вы, вероятно, так же разбиваете различные функции ваших приложений на наборы
 модулей. Либо используете какие-то иные паттерны для подобного разделения. Это

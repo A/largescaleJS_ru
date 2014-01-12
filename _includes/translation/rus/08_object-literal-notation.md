@@ -47,3 +47,15 @@ myModule.myMethod(); //I can haz functionality
 myModule.myMethod2(); //outputs enabled
 myModule.myMethod3({language:'fr',useCaching:false}); //fr
 {% endhighlight %}
+
+{:class="message"}
+**Ссылки по теме:**  
+[Rebecca Murphey - Using Objects To Organize Your Code][1]  
+[Stoyan Stefanov - 3 Ways To Define A JavaScript Class ][2]  
+[Ben Alman - Clarifications On Object Literals (There's no such thing as a JSON Object)][3]  
+[John Resig - Simple JavaScript Inheritance][4]
+
+[1]: http://blog.rebeccamurphey.com/2009/10/15/using-objects-to-organize-your-code
+[2]: http://www.phpied.com/3-ways-to-define-a-javascript-class/
+[3]: http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/
+[4]: http://ejohn.org/blog/simple-javascript-inheritance/

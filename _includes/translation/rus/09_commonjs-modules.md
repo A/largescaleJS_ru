@@ -1,7 +1,7 @@
 <!-- ### CommonJS Модули -->
 
 
-Возможно, в последний год или два вы что-то слышали о [CommonJS][5] — волонтерской
+Возможно, в последний год или два вы что-то слышали о [CommonJS][4] — волонтерской
 рабочей группе, которая проектирует, прототипирует и стандартизирует различные
 JavaScript API. На сегодняшний день они ратифицировали стандарты для модулей и
 пакетов(packages?). (мысль рвется) CommonJS AMD — это простой API для объявления
@@ -38,7 +38,7 @@ define(function(require,exports){
 Есть много хороших JavaScript библиотек, для загрузки модулей в формате
 **CommonJS**, но моим личным предпочтением является RequireJS. Полный учебник
 по RequireJS выходит за рамки этого руководства, но я могу порекомендовать вам
-почитать [пост James Bruke «ScriptJunkie»][6]. I know a number of people that
+почитать [пост James Bruke «ScriptJunkie»][5]. I know a number of people that
 also like Yabble.
 
 Из коробки, RequireJS обеспечивает методы для облегчения создания статичных
@@ -85,6 +85,14 @@ define(function(require, exports, module) {
 и CommonJS wiki и SitePen содержат много материалов, которые вам помогут
 вам лучше разобраться в CommonJS модулях.
 
+{:class="message"}
+**Ссылки по теме:**  
+[The CommonJS Module Specifications][1]  
+[Alex Young - Demystifying CommonJS Modules][2]  
+[Notes on CommonJS modules with RequireJS][3]  
 
-[5]: http://commonjs.org
-[6]: http://msdn.microsoft.com/en-us/scriptjunkie/ff943568
+[1]: http://wiki.commonjs.org/wiki/Modules
+[2]: http://dailyjs.com/2010/10/18/modules/
+[3]: http://requirejs.org/docs/commonjs.html#packages
+[4]: http://commonjs.org
+[5]: http://msdn.microsoft.com/en-us/scriptjunkie/ff943568

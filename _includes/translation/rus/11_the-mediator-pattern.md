@@ -109,6 +109,15 @@ obj.subscribe('nameChange', function(arg){
 obj.publish('nameChange', 'john'); //sam, john
 {% endhighlight %}
 
+{:class="message"}
+**Ссылки по теме:**  
+Stoyan Stefanov - Page 168, JavaScript Patterns  
+[HB Stone - JavaScript Design Patterns: Mediator][1]  
+[NVince Huston - The Mediator Pattern (not specific to JavaScript, but a concise)][2]  
+
+
+[1]: http://arguments.callee.info/2009/05/18/javascript-design-patterns--mediator/
+[2]: http://www.vincehuston.org/dp/mediator.html
 
 [7]: /assets/img/chart4a.jpg
 [8]: https://github.com/rpflorence
