@@ -10,7 +10,7 @@
     # Один раз установить зависимости
     bundle install
     # Запустить блог. Будет доступен на 4000-м порту localhost'а
-    jekyll serve --watch
+    jekyll serve --watch --drafts
 
 
 ### Файлы перевода
