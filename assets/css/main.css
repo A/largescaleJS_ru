@@ -81,6 +81,8 @@ ol {
 }
 a {
   display: inline-block;
+  padding: 0.6em;
+  margin: -0.6em;
   color: #06c;
   text-decoration: none;
 }
