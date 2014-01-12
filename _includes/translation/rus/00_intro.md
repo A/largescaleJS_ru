@@ -28,4 +28,5 @@
 {:class="message"}
 
 
+[1]: http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/
 [2]: http://addyosmani.com/resources/essentialjsdesignpatterns/book/
