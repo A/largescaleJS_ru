@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Глава 11. Паттерн «Медиатор»"
+title: "Глава 10. Паттерн «Медиатор»"
 ---
 
 {% include translation/rus/10_the-mediator-pattern.md %}
