@@ -18,7 +18,7 @@
 для планирования архитектуры своего приложения, и чем вам это будет полезно
 в долгосрочной перспективе.
 
-Большинство JavaScript разработчиков в архитектуре своих приложений обычно
+Большинство JavaScript-разработчиков в архитектуре своих приложений обычно
 использует различные комбинации из следующих компонентов:
 
 *   виджеты
@@ -31,10 +31,10 @@
 
 {:class="message"}
 **Ссылки по теме:**  
-[Rebecca Murphey - Structuring JavaScript Applications][1]  
-[Peter Michaux - MVC Architecture For JavaScript Applications][2]  
-[StackOverflow - A discussion on modern MVC frameworks][3]  
-[Doug Neiner - Stateful Plugins and the Widget Factory][4]  
+[Ребекка Мёрфи — Создание архитектуры JavaScript-приложений][1]  
+[Питер Мишо — MVC архитектура для JavaScript-приложений][2]  
+[StackOverflow — Дискуссия о современных MVC-фреймворках][3]  
+[Дуг Найнер — Поддерживаемые плагины и фабрика виджетов][4]  
 
 
 Вероятно, вы выносите различные функции ваших приложений в отдельные модули,
