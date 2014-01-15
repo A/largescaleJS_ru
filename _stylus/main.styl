@@ -24,6 +24,11 @@ img__noise = url('/assets/img/noise.png')
   box-sizing: border-box
 
 html
+body
+  margin 0
+  height 100%
+
+html
   font-family font__base
   font-size font__size
 
@@ -34,13 +39,6 @@ body
   color color__text
   text-shadow shadow__pressed_effect
 
-hr
-  display: block
-  size 100% 1px
-  margin 1em 0 1.5em
-  background-color color__text
-  border none
-  box-shadow shadow__tiny
 
 h1
 h2
@@ -89,15 +87,21 @@ a
 
 .wrapper
   width 720px
-  margin 60px auto 0
+  margin 0 auto
+  padding 4em 0 1em
   position relative
+  min-height 100% 
 
+.footer
+  absolute bottom 0
+  padding-bottom 1em
+  font-size .8em
+  font-style italic
 
 .intro
   margin-bottom 1em
   font-size font__size_small
   color color__text_second
-
 
 .content
   margin 2em 0 10em
@@ -154,6 +158,9 @@ a
   box-shadow shadow__tiny
   .num
     color color__text_second
+
+.page-header__title
+  overflow:hidden
 
 .page-header__rss-link
   font-family "IconicStroke"
