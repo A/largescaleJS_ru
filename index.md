@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Паттерны для масштабируемых JavaScript-приложений"
-subtitle: "<a href='http://twitter.com/addyosmani'>Addy Osmani</a>"
+subtitle: "Автор: <a href='http://twitter.com/addyosmani'>Эдди Османи</a>. Технический обзор: <a href='http://twitter.com/peolanha'>Андрэ Хэнсон</a>"
 ---
 
 {% include translation/rus/readme.md %}
