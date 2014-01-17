@@ -5,7 +5,7 @@ title : Atom Feed
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
-  <title>{{ site.author.name }}</title>
+  <title>{{ site.author }} - {{ site.title }}</title>
   <link href="{{ site.production_url }}/atom.xml" rel="self"/>
   <link href="{{ site.production_url }}"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
