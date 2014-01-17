@@ -1,11 +1,11 @@
 {% if page.previous or page.next %}
   <div class="prevnext">
-    {% if page.previous%}
+    {% if page.previous and page.previous.published %}
       <div class="prevnext__previous">
         <small><span class="prevnext__previous-arrow">&larr;</span><a rel="prev" href="{{ page.previous.url }}">{{ page.previous.title }}</a></small>
       </div>
     {% endif %}
-    {% if page.next %}
+    {% if page.next and page.next.published %}
       <div class="prevnext__next">
         <small><span class="prevnext__next-arrow">&rarr;</span><a rel="next" href="{{ page.next.url }}">{{ page.next.title }}</a></small>
       </div>
