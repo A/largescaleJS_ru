@@ -11,5 +11,5 @@
 вдохновленном [предшествующей ему работой][1] Николаса Закаса.
 
 [1]: http://addyosmani.com/largescalejavascript/
-[2]: https://twitter.com/LargeJS
+[2]: https://twitter.com/largescaleJS_ru
 [3]: /atom.xml
