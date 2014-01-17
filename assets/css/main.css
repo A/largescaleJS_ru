@@ -178,9 +178,13 @@ a:visited.ignore-visited {
 .sidenote .num {
   color: #888;
 }
+/*
 .page-header__title {
   overflow: hidden;
 }
+cutting letters
+http://i.imgur.com/4Y0bgGW.png
+*/
 .page-header__rss-link {
   font-family: "IconicStroke";
   display: block;
