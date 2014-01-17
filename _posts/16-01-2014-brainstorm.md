@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Глава 4. Мозговой штурм"
+published: true
 ---
 
 

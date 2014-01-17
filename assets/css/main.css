@@ -108,6 +108,9 @@ a:visited.ignore-visited {
   font-size: 14px;
   color: #888;
 }
+.unpublished-post {
+  color: #888;
+}
 .content {
   margin: 2em 0 5em;
   line-height: 1.5;

@@ -1,5 +1,9 @@
 <ul>
   {% for post in site.posts reversed %}
+    {% if post.published %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% else %}
+      <li class='unpublished-post'>{{ post.title }}</li>
+    {% endif %}
   {% endfor %}
 </ul>
