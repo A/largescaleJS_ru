@@ -117,20 +117,20 @@ dojo.setObject("store.basket.object", (function() {
 {% highlight javascript %}
 YAHOO.store.basket = function () {
 
-    //"private" variables:
-    var myPrivateVar = "I can be accessed only within YAHOO.store.basket .";
+    //приватная переменная:
+    var myPrivateVar = "Ко мне можно получить доступ только из YAHOO.store.basket.";
 
-    //"private" method:
+    //приватный метод:
     var myPrivateMethod = function () {
-        YAHOO.log("I can be accessed only from within YAHOO.store.basket");
+        YAHOO.log("Я доступен только при вызове из YAHOO.store.basket");
     }
 
     return {
-        myPublicProperty: "I'm a public property.",
+        myPublicProperty: "Я - публичное свойство",
         myPublicMethod: function () {
-            YAHOO.log("I'm a public method.");
+            YAHOO.log("Я - публичный метод");
 
-            //Within basket, I can access "private" vars and methods:
+            //Будучи внутри корзины я могу получить доступ к приватным переменный и методам:
             YAHOO.log(myPrivateVar);
             YAHOO.log(myPrivateMethod());
 
