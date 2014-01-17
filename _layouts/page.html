@@ -2,7 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>«{{ site.title }}» {{ site.author }}</title>
+
+  {% if page.index == true %}
+    <title>«{{ site.title }}» от {{ site.author }}</title>
+  {% else %}
+    <title>{{ page.title }} — «{{ site.title }}»</title>
+  {% endif %}
+
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/pygments.css">
   <link rel="stylesheet" href="/assets/vendor/social-likes/social-likes.css">
