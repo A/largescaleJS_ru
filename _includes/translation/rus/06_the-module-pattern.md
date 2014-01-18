@@ -32,8 +32,8 @@
 
 {% highlight javascript %}
 var basketModule = (function() {
-    var basket = []; //private
-    return { //exposed to public
+    var basket = []; //приватная переменная
+    return { //методы доступные извне
         addItem: function(values) {
             basket.push(values);
         },
@@ -56,7 +56,7 @@ var basketModule = (function() {
 следующим образом:
 
 {% highlight javascript %}
-//basketModule это объект со свойствами, которые могут также быть и методами:
+//basketModule - это объект со свойствами, которые могут также быть и методами:
 basketModule.addItem({item:'bread',price:0.5});
 basketModule.addItem({item:'butter',price:0.3});
 
@@ -146,13 +146,13 @@ YAHOO.store.basket = function () {
 
 **jQuery** 
 
-There are a number of ways in which jQuery code unspecific to plugins can be
-wrapped inside the module pattern. Ben Cherry previously suggested an 
-implementation where a function wrapper is used around module definitions in the
-event of there being a number of commonalities between modules.
+Существует множество способов чтобы представить jQuery код в виде паттерна "модуль", 
+даже тогда, когда этот код не напоминает привычные jQuery плагины. Бен Черри ранее 
+предлагал способ, при котором, если у модулей есть общие черты, то они объявляются 
+через функцию-обертку.
 
-В следующем примере, функция `library` используется для декларации новой
-библиотеки и, автомотически, при создании библиотеки (ie. модуля),
+В следующем примере функция `library` используется для объявления новой
+библиотеки и, автоматически, при создании библиотеки (т.е. модуля),
 связывает вызов `init` с `document.ready`.
 
 {% highlight javascript %}
@@ -168,7 +168,7 @@ function library(module) {
 var myLibrary = library(function() {
    return {
      init: function() {
-       /*implementation*/
+       /* код модуля */
      }
    };
 }());
