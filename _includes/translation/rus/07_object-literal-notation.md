@@ -1,12 +1,12 @@
 ##### Литеральная нотация объекта
 
-В литеральной нотации объект описывается внутки блока фигурных скобок ({}), 
-как набор разделенных точкой с запятой пар ключ/значение. Ключи объекта могут
+В литеральной нотации объект описывается внутри блока фигурных скобок ({}), 
+как набор разделенных запятой пар ключ/значение. Ключи объекта могут
 быть как строками, так и идентификаторами. После имени ставится двоеточие.
-В объекте не должно стоять точки с запятой после последней пары ключ/значение,
+В объекте не должно стоять запятой после последней пары ключ/значение,
 так как это может привести к ошибкам.
 
-Литерал объекта не требует использования оператора `new` для создания инстанса,
+Литерал объекта не требует использования оператора `new` для создания экземпляра,
 но он не должен стоять в начале выражения, так как открытая `{` может быть
 воспринята как начало блока. Ниже вы можете увидеть пример модуля, определенного
 с помощью литеральной нотации объекта. Новые члены объекта могут быть добавлены
@@ -20,22 +20,22 @@
 {% highlight javascript %}
 var myModule = {
     myProperty : 'someValue',
-    //object literals can contain properties and methods.
-    //here, another object is defined for configuration
-    //purposes:
+    //Литералы объектов могут содержать свойства и методы.
+    //ниже в свойстве определен другой объект,
+    //для описания конфигурации:
     myConfig:{
         useCaching:true,
         language: 'en'   
     },
-    //a very basic method
+    //Очень простой метод
     myMethod: function(){
         console.log('I can haz functionality?');
     },
-    //output a value based on current configuration
+    //вывод значения заданного в конфигурации
     myMethod2: function(){
         console.log('Caching is:' + (this.myConfig.useCaching)?'enabled':'disabled');
     },
-    //override the current configuration
+    //переопределение конфигурации
     myMethod3: function(newConfig){
         if(typeof newConfig == 'object'){
             this.myConfig = newConfig;
@@ -44,17 +44,17 @@ var myModule = {
     }
 };
 
-myModule.myMethod(); //I can haz functionality
-myModule.myMethod2(); //outputs enabled
-myModule.myMethod3({language:'fr',useCaching:false}); //fr
+myModule.myMethod(); //'I can haz functionality'
+myModule.myMethod2(); //Вывод 'enabled'
+myModule.myMethod3({language:'fr',useCaching:false}); //'fr'
 {% endhighlight %}
 
 {:class="message"}
 **Ссылки по теме:**  
-[Rebecca Murphey - Using Objects To Organize Your Code][1]  
-[Stoyan Stefanov - 3 Ways To Define A JavaScript Class ][2]  
-[Ben Alman - Clarifications On Object Literals (There's no such thing as a JSON Object)][3]  
-[John Resig - Simple JavaScript Inheritance][4]
+[Rebecca Murphey - Использование объектов для организации вашего кода][1]  
+[Stoyan Stefanov - 3 способа определения класса в JavaScript ][2]  
+[Ben Alman - Разъяснения по литералам объектов (Там нет такого понятия, как объект JSON)][3]  
+[John Resig - Простое наследование в JavaScript][4]
 
 [1]: http://blog.rebeccamurphey.com/2009/10/15/using-objects-to-organize-your-code
 [2]: http://www.phpied.com/3-ways-to-define-a-javascript-class/
