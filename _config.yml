@@ -3,7 +3,7 @@ title: "Паттерны для масштабируемых JavaScript прил
 
 markdown: kramdown
 exclude: ['Gemfile', 'Gemfile.lock', 'makefile']
-# pygments: true
+pygments: true
 
 production_url: http://largescalejs.ru/
 baseurl: /
