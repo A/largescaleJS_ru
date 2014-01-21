@@ -32,7 +32,7 @@
 
 {% highlight javascript %}
 var basketModule = (function() {
-    var basket = []; // приватная переменная
+  var basket = []; // приватная переменная
     return { // методы доступные извне
         addItem: function(values) {
             basket.push(values);
