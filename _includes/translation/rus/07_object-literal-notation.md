@@ -1,6 +1,6 @@
-##### Литеральная нотация объекта
+<!-- ##### Литеральная нотация объекта -->
 
-В литеральной нотации объект описывается внутри блока фигурных скобок ({}), 
+В литеральной нотации объект описывается внутри блока фигурных скобок (`{}`), 
 как набор разделенных запятой пар ключ/значение. Ключи объекта могут
 быть как строками, так и идентификаторами. После имени ставится двоеточие.
 В объекте не должно стоять запятой после последней пары ключ/значение,
@@ -18,35 +18,37 @@
 более чем подходящий выбор.
 
 {% highlight javascript %}
-var myModule = {
-    myProperty : 'someValue',
-    //Литералы объектов могут содержать свойства и методы.
-    //ниже в свойстве определен другой объект,
-    //для описания конфигурации:
-    myConfig:{
-        useCaching:true,
-        language: 'en'   
-    },
-    //Очень простой метод
-    myMethod: function(){
-        console.log('I can haz functionality?');
-    },
-    //вывод значения заданного в конфигурации
-    myMethod2: function(){
-        console.log('Caching is:' + (this.myConfig.useCaching)?'enabled':'disabled');
-    },
-    //переопределение конфигурации
-    myMethod3: function(newConfig){
-        if(typeof newConfig == 'object'){
-            this.myConfig = newConfig;
-            console.log(this.myConfig.language); 
-        }
-    }
-};
 
-myModule.myMethod(); //'I can haz functionality'
-myModule.myMethod2(); //Вывод 'enabled'
-myModule.myMethod3({language:'fr',useCaching:false}); //'fr'
+    var myModule = {
+        myProperty: 'someValue',
+        // Литералы объектов могут содержать свойства и методы.
+        // ниже в свойстве определен другой объект,
+        // для описания конфигурации:
+        myConfig: {
+            useCaching: true,
+            language: 'en'   
+        },
+        // Очень простой метод
+        myMethod: function() {
+            console.log('I can haz functionality?');
+        },
+        // вывод значения заданного в конфигурации
+        myMethod2: function() {
+            console.log('Caching is: ' + ((this.myConfig.useCaching) ? 'enabled' : 'disabled'));
+        },
+        // переопределение конфигурации
+        myMethod3: function(newConfig) {
+            if (typeof newConfig == 'object') {
+                this.myConfig = newConfig;
+                console.log(this.myConfig.language); 
+            }
+        }
+    };
+    
+    myModule.myMethod();  // 'I can haz functionality'
+    myModule.myMethod2(); // Вывод 'enabled'
+    myModule.myMethod3({language:'fr',useCaching:false}); // 'fr'
+
 {% endhighlight %}
 
 {:class="message"}
