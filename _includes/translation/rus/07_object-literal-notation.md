@@ -26,7 +26,7 @@
         // для описания конфигурации:
         myConfig: {
             useCaching: true,
-            language: 'en'   
+            language: 'en'
         },
         // Очень простой метод
         myMethod: function() {
