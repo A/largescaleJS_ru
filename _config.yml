@@ -5,6 +5,6 @@ markdown: kramdown
 exclude: ['Gemfile', 'Gemfile.lock', 'makefile']
 pygments: true
 
-production_url: http://largescalejs.ru/
+production_url: http://largescalejs.ru
 baseurl: /
 permalink: /:title
