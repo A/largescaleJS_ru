@@ -20,19 +20,21 @@ JavaScript API. На сегодняшний день они ратифициро
 которая используется модулями для импорта объекта `exports` из других модулей.
 
 {% highlight javascript %}
-/*
-Пример обеспечения совместимости между AMD и стандартом CommonJS с помощью
-создания обертки над форматом CommonJS:
-*/
 
-(function(define){
-define(function(require,exports){
-// module contents
- var dep1 = require("dep1");
- exports.someExportedFunction = function(){...};
- //...
-});
-})(typeof define=="function"?define:function(factory){factory(require,exports)});
+    /*
+    Пример обеспечения совместимости между AMD и стандартом CommonJS с помощью
+    создания обертки над форматом CommonJS:
+    */
+    
+    (function(define){
+    define(function(require,exports){
+    // module contents
+     var dep1 = require("dep1");
+     exports.someExportedFunction = function(){...};
+     //...
+    });
+    })(typeof define=="function"?define:function(factory){factory(require,exports)});
+
 {% endhighlight %}
 
 Есть много хороших JavaScript библиотек, для загрузки модулей в формате
@@ -53,10 +55,12 @@ define(function(require,exports){
 которая экспортирует функцию `encodeToASCII`. Модуль будет выглядеть как-то так:
 
 {% highlight javascript %}
-var encodeToASCII = require("encoder").encodeToASCII;
-exports.encodeSomeSource = function(){
-    //process then call encodeToASCII
-}
+
+    var encodeToASCII = require("encoder").encodeToASCII;
+    exports.encodeSomeSource = function(){
+        //process then call encodeToASCII
+    }
+
 {% endhighlight %}
 
 Такой код не будет работать с тегом `<script>` без специальной обертки над
@@ -70,12 +74,14 @@ exports.encodeSomeSource = function(){
 Используя RequireJS, перепишем модуль:
 
 {% highlight javascript %}
-define(function(require, exports, module) {
-    var encodeToASCII = require("encoder").encodeToASCII;
-    exports.encodeSomeSource = function(){
-            // process then call encodeToASCII
-    }
-});
+
+    define(function(require, exports, module) {
+        var encodeToASCII = require("encoder").encodeToASCII;
+        exports.encodeSomeSource = function(){
+                // process then call encodeToASCII
+        }
+    });
+    
 {% endhighlight %}
 
 Для разработчиков, которые хотят пойти дальше простого использования JavaScript
