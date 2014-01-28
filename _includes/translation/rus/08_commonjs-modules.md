@@ -57,7 +57,7 @@ define(function(require,exports){
 {% highlight javascript %}
 var encodeToASCII = require("encoder").encodeToASCII;
 exports.encodeSomeSource = function(){
-    //process then call encodeToASCII
+  // Обработка изображения, вызов encodeToASCII
 }
 {% endhighlight %}
 
@@ -74,7 +74,7 @@ exports.encodeSomeSource = function(){
 define(function(require, exports, module) {
   var encodeToASCII = require("encoder").encodeToASCII;
   exports.encodeSomeSource = function(){
-    // process then call encodeToASCII
+    // Обработка изображения, вызов encodeToASCII
   }
 });
 {% endhighlight %}
