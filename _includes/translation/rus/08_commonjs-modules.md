@@ -55,12 +55,10 @@ define(function(require,exports){
 будет выглядеть примерно так:
 
 {% highlight javascript %}
-
-    var encodeToASCII = require("encoder").encodeToASCII;
-    exports.encodeSomeSource = function(){
-        //process then call encodeToASCII
-    }
-
+var encodeToASCII = require("encoder").encodeToASCII;
+exports.encodeSomeSource = function(){
+    //process then call encodeToASCII
+}
 {% endhighlight %}
 
 Этот код не будет работать с тегом `script`, ему необходим определенный контекст.
