@@ -55,10 +55,12 @@ define(function(require,exports){
 будет выглядеть примерно так:
 
 {% highlight javascript %}
-var encodeToASCII = require("encoder").encodeToASCII;
-exports.encodeSomeSource = function(){
-    //process then call encodeToASCII
-}
+
+    var encodeToASCII = require("encoder").encodeToASCII;
+    exports.encodeSomeSource = function(){
+        //process then call encodeToASCII
+    }
+
 {% endhighlight %}
 
 Этот код не будет работать с тегом `script`, ему необходим определенный контекст.
@@ -71,12 +73,14 @@ exports.encodeSomeSource = function(){
 Попробуем переписать этот модуль, используя RequireJS:
 
 {% highlight javascript %}
-define(function(require, exports, module) {
-    var encodeToASCII = require("encoder").encodeToASCII;
-    exports.encodeSomeSource = function(){
-            // process then call encodeToASCII
-    }
-});
+
+    define(function(require, exports, module) {
+        var encodeToASCII = require("encoder").encodeToASCII;
+        exports.encodeSomeSource = function(){
+                // process then call encodeToASCII
+        }
+    });
+    
 {% endhighlight %}
 
 Для разработчиков, которые хотят пойти дальше простого использования JavaScript
