@@ -19,7 +19,7 @@
 частей системы, и функцию `require`, которая используется одними модулями для
 импорта объекта `exports` из других.
 
-{% highlight javascript %}
+```js
 /*
 Пример обеспечения совместимости между AMD и обычным CommonJS с помощью
 создания обертки над последним:
@@ -33,7 +33,7 @@ define(function(require,exports){
   //...
 });
 })(typeof define=="function"?define:function(factory){factory(require,exports)});
-{% endhighlight %}
+```
 
 Есть много хороших JavaScript-библиотек, для загрузки модулей в формате
 **CommonJS**, но моим личным предпочтением является RequireJS. Полный учебник
@@ -54,12 +54,12 @@ define(function(require,exports){
 экспортирует функцию `encodeToASCII`. Модуль использующий эту библиотеку
 будет выглядеть примерно так:
 
-{% highlight javascript %}
+```js
 var encodeToASCII = require("encoder").encodeToASCII;
 exports.encodeSomeSource = function(){
   // Обработка изображения, затем вызов encodeToASCII
 }
-{% endhighlight %}
+```
 
 Этот код не будет работать с тегом `script`. Ему необходим определенный контекст.
 Я имею в виду наш метод `encodeToASCII`, который ссылается на несуществующие
@@ -70,14 +70,14 @@ exports.encodeSomeSource = function(){
 
 Попробуем переписать этот модуль, используя RequireJS:
 
-{% highlight javascript %}
+```js
 define(function(require, exports, module) {
   var encodeToASCII = require("encoder").encodeToASCII;
   exports.encodeSomeSource = function(){
     // Обработка изображения, затем вызов encodeToASCII
   }
 });
-{% endhighlight %}
+```
 
 Для разработчиков, которые хотят пойти дальше простого использования JavaScript
 в своих проектах, CommonJS модули — прекрасная возможность начать движение в эту
