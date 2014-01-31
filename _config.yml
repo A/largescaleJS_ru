@@ -1,7 +1,7 @@
 author: "Эдди Османи"
 title: "Паттерны для масштабируемых JavaScript приложений"
 
-markdown: redcarpet
+markdown: kramdown
 exclude: ['Gemfile', 'Gemfile.lock', 'makefile']
 pygments: true
 
