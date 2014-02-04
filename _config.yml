@@ -1,5 +1,5 @@
 author: "Эдди Османи"
-title: "Паттерны для масштабируемых JavaScript приложений"
+title: "Паттерны для масштабируемых JavaScript-приложений"
 
 markdown: kramdown
 exclude: ['Gemfile', 'Gemfile.lock', 'makefile']
