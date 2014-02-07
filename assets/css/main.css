@@ -248,3 +248,9 @@ pre > code {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+.prose {
+  font-style: italic;
+  font-size: 15px;
+  margin: 29px 0;
+  display: block;
+}
