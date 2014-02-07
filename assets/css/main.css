@@ -101,7 +101,7 @@ a:visited.ignore-visited {
   bottom: 0;
   padding-bottom: 1em;
   font-size: 0.8em;
-  font-style: italic;
+  line-height: 1.5;
 }
 .intro {
   margin-bottom: 1em;
@@ -112,7 +112,7 @@ a:visited.ignore-visited {
   color: #888;
 }
 .content {
-  margin: 2em 0 5em;
+  margin: 2em 0 8em;
   line-height: 1.5;
   position: relative;
 }
