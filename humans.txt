@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Антон Шувалов -- Идея, перевод, создание сайта -- @shuvalov_anton
+    Рахим Давлеткалиев -- Вычитывание и редактура -- @freetonik
+    Владимир Старков -- Помощь с джекиллом, вычитывание и редактура -- @matmuchrapna
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, reset.css
+    Jekyll, prose.io/, Github pages
+
+     Source: https://github.com/shuvalov-anton/largescaleJS_ru
