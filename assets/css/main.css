@@ -103,6 +103,12 @@ a:visited.ignore-visited {
   font-size: 0.8em;
   line-height: 1.5;
 }
+.license {
+  color: #888;
+}
+.license a[rel=license] {
+  vertical-align: middle;
+}
 .intro {
   margin-bottom: 1em;
   font-size: 14px;
