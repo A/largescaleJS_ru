@@ -96,12 +96,9 @@ a:visited.ignore-visited {
   position: relative;
   min-height: 100%;
 }
-.left-widget {
-  width: 160px;
-  height: 600px;
-  position: absolute;
-  left: 100%;
-  margin-left: 36px;
+.widget {
+  width: 728px;
+  height: 90px;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15);
