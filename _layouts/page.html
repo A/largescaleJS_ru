@@ -19,6 +19,9 @@
     {% include page-header.html %}
     {% include social-likes.html %}
     <div class="content">
+    <div class="left-widget">
+      {% include adsense.html %}
+    </div>
       {{ content }}
       {% include prevnext.html %}
     </div>
@@ -38,7 +41,6 @@
         {% include license.html %}
     </div>
   </div>
-  {% include adsense.html %}
   <script src="/assets/vendor/jquery/jquery-2.0.3.min.js"></script>
   <!-- <script src="/assets/js/typo.js"></script> -->
   <script src="/assets/vendor/social-likes/social-likes.min.js"></script>
