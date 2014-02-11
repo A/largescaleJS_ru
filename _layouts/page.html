@@ -22,13 +22,12 @@
       {{ content }}
       {% include prevnext.html %}
     </div>
-    <!--<div class="widget">
-      
-    </div>-->
     <div class="footer">
+      <div class="widget">
+        {% include adsense.html %}
+      </div>
       <p>
         {% include prose.html %}
-        <br/>
         Перевод:
           <a class="ignore-visited" href='http://anton-shuvalov.info'>Антон Шувалов</a>.   
         Помощь в переводе:
@@ -41,6 +40,8 @@
     </div>
   </div>
   <script src="/assets/vendor/jquery/jquery-2.0.3.min.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <!-- <script src="/assets/js/typo.js"></script> -->
   <script src="/assets/vendor/social-likes/social-likes.min.js"></script>
   {% include analytics.html %}
