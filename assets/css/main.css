@@ -103,6 +103,13 @@ a:visited.ignore-visited {
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15);
 }
+.lwidget {
+  width: 160px;
+  height: 600px;
+  position: absolute;
+  left: 100%;
+  margin-left: 36px;
+}
 .footer {
   position: absolute;
   bottom: 0;
