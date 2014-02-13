@@ -99,9 +99,6 @@ a:visited.ignore-visited {
 .widget {
   width: 728px;
   height: 90px;
-  background-color: #fff;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
 }
 .lwidget {
   width: 160px;
