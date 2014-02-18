@@ -45,12 +45,12 @@ var module = (function() {
     run: function() {
       console.log('процесс запущен');
     },
-    jump: function(){
+    jump: function() {
       console.log('резкое изменение');
     }
   };
   return {
-    facade : function( args ) {
+    facade: function( args ) {
       _private.set(args.val);
       _private.get();
       if ( args.run ) {
