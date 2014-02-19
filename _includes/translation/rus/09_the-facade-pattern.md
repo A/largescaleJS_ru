@@ -60,7 +60,7 @@ var module = (function() {
   }
 }());
 
-module.facade({run: true, val:10}); // Текущее значение: 10, процесс запущен
+module.facade({run:true, val:10}); // Текущее значение: 10, процесс запущен
 {% endhighlight %}
 
 
