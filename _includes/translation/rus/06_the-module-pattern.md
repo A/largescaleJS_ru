@@ -40,7 +40,7 @@ var basketModule = (function() {
         getItemCount: function() {
             return basket.length;
         },
-        getTotal: function(){
+        getTotal: function() {
            var q = this.getItemCount(),p=0;
             while(q--){
                 p+= basket[q].price; 
@@ -57,8 +57,8 @@ var basketModule = (function() {
 
 {% highlight javascript %}
 // basketModule - это объект со свойствами, которые могут также быть и методами:
-basketModule.addItem({item:'bread',price:0.5});
-basketModule.addItem({item:'butter',price:0.3});
+basketModule.addItem({item:'bread', price:0.5});
+basketModule.addItem({item:'butter', price:0.3});
 
 console.log(basketModule.getItemCount());
 console.log(basketModule.getTotal());
@@ -98,7 +98,7 @@ Dojo старается обеспечивать поведение похоже
             console.log(basket);
         }
         return {
-            publicMethod: function(){
+            publicMethod: function() {
                 privateMethod();
             }
         };
@@ -123,13 +123,13 @@ Dojo старается обеспечивать поведение похоже
         var myPrivateVar = "Ко мне можно получить доступ только из YAHOO.store.basket.";
         
         // приватный метод:
-        var myPrivateMethod = function () {
+        var myPrivateMethod = function() {
             YAHOO.log("Я доступен только при вызове из YAHOO.store.basket");
         }
         
         return {
             myPublicProperty: "Я - публичное свойство",
-            myPublicMethod: function () {
+            myPublicMethod: function() {
                 YAHOO.log("Я - публичный метод");
         
                 // Будучи внутри корзины я могу получить доступ к приватным переменный и методам:
