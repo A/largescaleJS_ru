@@ -25,11 +25,11 @@
 создания обертки над последним:
 */
 
-(function(define){
-define(function(require,exports){
+(function(define) {
+define(function(require,exports) {
   // module contents
   var dep1 = require("dep1");
-  exports.someExportedFunction = function(){...};
+  exports.someExportedFunction = function() {...};
   //...
 });
 })(typeof define=="function"?define:function(factory){factory(require,exports)});
@@ -56,7 +56,7 @@ define(function(require,exports){
 
 {% highlight javascript %}
 var encodeToASCII = require("encoder").encodeToASCII;
-exports.encodeSomeSource = function(){
+exports.encodeSomeSource = function() {
   // Обработка изображения, затем вызов encodeToASCII
 }
 {% endhighlight %}
@@ -73,7 +73,7 @@ exports.encodeSomeSource = function(){
 {% highlight javascript %}
 define(function(require, exports, module) {
   var encodeToASCII = require("encoder").encodeToASCII;
-  exports.encodeSomeSource = function(){
+  exports.encodeSomeSource = function() {
     // Обработка изображения, затем вызов encodeToASCII
   }
 });
