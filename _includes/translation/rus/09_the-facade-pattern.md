@@ -39,7 +39,7 @@ var module = (function() {
     get: function() {
       console.log('Текущее значение:' + this.i);
     },
-    set: function( val ) {
+    set: function(val) {
       this.i = val;
     },
     run: function() {
@@ -50,10 +50,10 @@ var module = (function() {
     }
   };
   return {
-    facade: function( args ) {
+    facade: function(arg) {
       _private.set(args.val);
       _private.get();
-      if ( args.run ) {
+      if (args.run) {
         _private.run();
       }
     }
