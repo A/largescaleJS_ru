@@ -39,28 +39,28 @@ var module = (function() {
     get: function() {
       console.log('Текущее значение:' + this.i);
     },
-    set: function( val ) {
+    set: function(val) {
       this.i = val;
     },
     run: function() {
       console.log('процесс запущен');
     },
-    jump: function(){
+    jump: function() {
       console.log('резкое изменение');
     }
   };
   return {
-    facade : function( args ) {
+    facade: function(arg) {
       _private.set(args.val);
       _private.get();
-      if ( args.run ) {
+      if (args.run) {
         _private.run();
       }
     }
   }
 }());
 
-module.facade({run: true, val:10}); // Текущее значение: 10, процесс запущен
+module.facade({run:true, val:10}); // Текущее значение: 10, процесс запущен
 {% endhighlight %}
 
 
