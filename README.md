@@ -1,11 +1,10 @@
-##### Addy Osmani 
-#### Patterns For Large-Scale JavaScript Application Architecture
+# Паттерны для масштабируемых JavaScript-приложений
 
 - - -
 
-Перевод на русский язык. Addy Osmani [в курсе][1].
+Перевод на русский язык. Эдди Османи [в курсе][1].
 
-### Участники
+## Участники
 
     project  : largescaleJS_ru
     repo age : 9 weeks
@@ -31,11 +30,11 @@
          1  Mikhail Baranov         0.3%
 
 
-### Разработчикам
+## Разработчикам
 
-Главы на английском языке и на русском лежат в директории [./_includes/translation/][2]
+Главы на английском языке и на русском лежат в директории *[./_includes/translation/][2]*
 
-В оформлении markdown мы стараемся придерживаться [правил от Frontender Magazine][3].
+В оформлении markdown мы стараемся придерживаться [правил][3] от Frontender Magazine.
 
 Локально сайт можно запустить примерно так:
 
