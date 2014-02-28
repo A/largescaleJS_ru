@@ -42,6 +42,11 @@
     stylus -w -o assets/css/ ./_stylus/main.styl
     jekyll serve --watch
 
+Epub-версия, к сожалению, совершенно не зависит от других файлов. Собирать новый
+Epub так:
+
+    cd ./epub
+    pandoc epub.md -o epub.epub --toc-depth=2
 
 [1]: https://twitter.com/addyosmani/status/415195066895171584
 [2]: https://github.com/shuvalov-anton/Patterns-For-Large-Scale-JavaScript-Application-Architecture/tree/gh-pages/_includes/translation
