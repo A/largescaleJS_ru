@@ -1,0 +1,53 @@
+@media print {
+	/* !Убираем украшения для страницы */
+	body {
+		background: #FFF;
+		text-shadow: none;
+	}
+	
+	/* !Используем всю ширину листа */
+	.wrapper {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	
+	/* !Чтобы после статьи не было много пустого места, уменьшаем отступ */
+	.content {
+		margin-bottom: 1em;
+	}
+	
+	/* !Убираем ненужные украшения для тегов в статьях, добавляем выделение */
+	p > code {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		font-weight: bold;
+	}
+	
+	/* !Это нужно для того, чтобы код не был на двух страницах */
+	.highlight > pre {
+		page-break-inside: avoid;
+	}
+	
+	/* !Убираем абсолютное позиционирование для футера */
+	.footer {
+		position: relative;
+		padding: 0;
+	}
+	
+	/* !Прячем всё, что не несет смысловой нагрузки | !important для social-likes */
+	.github__badge,
+	.page-header > h4,
+	.page-header__rss-link,
+	.page-header__twitter-link,
+	.social-likes,
+	.widget,
+	.message,
+	.license,
+	.prevnext,
+	.footer > p > span,
+	.footer > p > a:last-child {
+		display: none !important;
+	}	
+}
