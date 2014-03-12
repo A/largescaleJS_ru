@@ -6,7 +6,6 @@ index: true
 ---
 
 {% include translation/rus/readme.md %}
-
 <h2>Оглавление</h2>
 
 {% include posts.html %}

@@ -24,9 +24,13 @@
       {% include prevnext.html %}
     </div>
     <div class="footer">
-      <div class="widget">
-        {% include footer-adsense.html %}
-      </div>
+      {% if page.index == true %}
+        {% include money.html %}
+      {% else %}
+        <div class="widget">
+          {% include footer-adsense.html %}
+        </div>
+      {% endif %}
       <p>
         {% include prose.html %}
         <br>
