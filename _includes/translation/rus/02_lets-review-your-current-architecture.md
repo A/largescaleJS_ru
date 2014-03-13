@@ -97,7 +97,7 @@ email-клиенте, почему бы нам не добавить этот м
 он был изначально разработан, и снаружи. По моему мнению, это дает наибольшую
 гарантию того, что модуль не сломается при попадании в другую систему.
 
-[1]: http://blog.rebeccamurphey.com/code-org-take-2-structuring-javascript-applic
+[1]: http://rmurphey.com/blog/2010/08/27/code-org-take-2-structuring-javascript-applications/
 [2]: http://michaux.ca/articles/mvc-architecture-for-javascript-applications
 [3]: http://stackoverflow.com/questions/5112899/knockout-js-vs-backbone-js-vs
 [4]: http://msdn.microsoft.com/en-us/scriptjunkie/ff706600
