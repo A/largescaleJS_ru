@@ -184,7 +184,6 @@ Dojo старается обеспечивать поведение похоже
 [Бен Черри — Погружение в паттерн «Модуль»][5]  
 [Джон Ханн — Будущее — это модули, а не фреймворки][6]  
 [Натан Смит — Ссылки на window и document в модулях (gist)][7]  
-[Девид Литмарк — Введение в паттерн «Модуль»][8]  
 
 
 [3]: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
@@ -192,4 +191,4 @@ Dojo старается обеспечивать поведение похоже
 [5]: http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 [6]: http://lanyrd.com/2011/jsconf/sfgdk/
 [7]: https://gist.github.com/274388
-[8]: http://blog.davidlitmark.com/post/6009004931/an-introduction-to-the-revealing-module-pattern
+
