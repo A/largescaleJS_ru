@@ -931,24 +931,27 @@ DOM, таким образом, в крайнем случае, замена б�
 ## Участники перевода
 
     project  : largescaleJS_ru
-    repo age : 9 weeks
-    active   : 51 days
-    commits  : 373
-    files    : 132
+    repo age : 3 months
+    active   : 57 days
+    commits  : 405
+    files    : 140
     authors  : 
-        278  Shuvalov Anton          74.5%
-        42  Vladimir Starkov        11.3%
-        22  Rakhim Davletkaliyev    5.9%
-        10  andreyr82               2.7%
-         7  FMRobot                 1.9%
-         2  theghostbel             0.5%
-         2  Sergei Khaletskiy       0.5%
-         2  Vlad Tsepelev           0.5%
-         1  rakeev                  0.3%
-         1  Andrew                  0.3%
-         1  Artem Sapegin           0.3%
-         1  Andrey Rachkov          0.3%
-         1  croupier                0.3%
-         1  finico                  0.3%
-         1  Nikita Bayev            0.3%
-         1  Mikhail Baranov         0.3%
+        295  Shuvalov Anton          72.8%
+         45  Vladimir Starkov        11.1%
+         22  Rakhim Davletkaliyev    5.4%
+         10  andreyr82               2.5%
+          7  FMRobot                 1.7%
+          7  Maxim Gladkih           1.7%
+          4  Nikita Bayev            1.0%
+          2  theghostbel             0.5%
+          2  Sergei Khaletskiy       0.5%
+          2  Vlad Tsepelev           0.5%
+          1  Mikhail Baranov         0.2%
+          1  Andrew                  0.2%
+          1  Vladimir                0.2%
+          1  Artem Sapegin           0.2%
+          1  Andrey Rachkov          0.2%
+          1  croupier                0.2%
+          1  finico                  0.2%
+          1  rakeev                  0.2%
+          1  Vadim Makeev            0.2%
