@@ -5,6 +5,21 @@
 		text-shadow: none;
 	}
 	
+	/* !Переводим локальные ссылки в читаемый вид  */
+	a::after {
+	    content: " (http://largescalejs.ru" attr(href) ")";
+	}
+	
+	/* !Ссылки в заголовках делаем маленькими */
+	.page-header__title-link::after {
+	    font-size: 14px;
+	}
+	
+	/* !Переводим все остальные ссылки в читаемый вид */
+	a[href^=http]::after {
+	    content: " (" attr(href) ")";
+	}
+	
 	/* !Используем всю ширину листа */
 	.wrapper {
 		margin: 0;
