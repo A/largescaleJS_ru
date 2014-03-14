@@ -50,7 +50,7 @@ var module = (function() {
     }
   };
   return {
-    facade: function(arg) {
+    facade: function(args) {
       _private.set(args.val);
       _private.get();
       if (args.run) {
