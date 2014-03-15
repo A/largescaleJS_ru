@@ -10,7 +10,7 @@
 одноименном докладе, впервые прочитанном на конференции «LondonJS», и
 вдохновленном [предшествующей ему работой][1] Николаса Закаса.
 
-Вы можете скачать эту книгу в форматах: [epub][4], [mobi][5] и [fb2][6].
+Вы можете скачать эту книгу в форматах: [epub][4], [mobi][5], [fb2][6] и [pdf][7].
 
 [1]: http://addyosmani.com/largescalejavascript/
 [2]: https://twitter.com/largescaleJS_ru
@@ -19,3 +19,4 @@
 [4]: /epub/largescale-js.epub
 [5]: /epub/largescale-js.mobi
 [6]: /epub/largescale-js.fb2
+[7]: /epub/largescale-js.pdf
