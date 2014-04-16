@@ -12,7 +12,7 @@
 
 Вы можете скачать эту книгу в форматах: [epub][4], [mobi][5], [fb2][6] и [pdf][7].
 
-[1]: http://addyosmani.com/largescalejavascript/
+[1]: http://www.slideshare.net/nzakas/scalable-javascript-application-architecture
 [2]: https://twitter.com/largescaleJS_ru
 [3]: /atom.xml
 
