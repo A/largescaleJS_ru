@@ -28,5 +28,5 @@
 {:class="message"}
 
 
-[1]: http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/
+[1]: http://www.slideshare.net/nzakas/scalable-javascript-application-architecture
 [2]: http://addyosmani.com/resources/essentialjsdesignpatterns/book/
