@@ -27,10 +27,10 @@
       {% if page.index == true %}
         {% include money.html %}
       {% else %}
-        {% include disqus.html %}
         <div class="widget">
           {% include footer-adsense.html %}
         </div>
+        {% include disqus.html %}
       {% endif %}
       <p>
         {% include prose.html %}
