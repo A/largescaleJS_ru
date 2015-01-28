@@ -26,7 +26,9 @@ years something better doesn't come out that you'll want to switch to?
 .
 
 This is a relatively trivial decision in smaller codebases but for larger
-applications, having an architecture which is flexible enough to support**not**
+applications, having an architecture which is flexible enough to support **not**
+caring about the libraries being used in your modules can be of great benefit,
+both financially and from a time-saving perspective.
 
 To summarize, if you reviewed your architecture right now, could a decision to
 switch libraries be made without rewriting your entire application?. If not, 
