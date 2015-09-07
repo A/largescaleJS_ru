@@ -18,6 +18,7 @@
   {% include fork-me.html %}
   <div class="wrapper">
     {% include page-header.html %}
+    {% include lazada-banner.html %}
     {% include social-likes.html %}
     <div class="content">
       {{ content }}
@@ -27,9 +28,6 @@
       {% if page.index == true %}
         {% include money.html %}
       {% else %}
-        <div class="widget">
-          {% include footer-adsense.html %}
-        </div>
         {% include disqus.html %}
       {% endif %}
       <p>

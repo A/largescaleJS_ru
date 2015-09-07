@@ -281,3 +281,12 @@ pre > code {
   margin: 29px 0;
   display: block;
 }
+.lazada-banner {
+  display: block;
+  width: 720px;
+  height: 120px;
+  background: url("/assets/img/lazada.jpg");
+  margin: 0 0 2rem 0;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
