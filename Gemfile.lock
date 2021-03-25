@@ -9,7 +9,7 @@ GEM
     commander (4.1.5)
       highline (~> 1.6.11)
     fast-stemmer (1.0.2)
-    ffi (1.9.3)
+    ffi (1.15.0)
     github-pages (12)
       RedCloth (= 4.2.9)
       jekyll (= 1.4.2)
